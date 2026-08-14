@@ -163,7 +163,6 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 {T.lead_form('hero', 'Request service')}
 </div>
 </div></div></section>
-{T.thermal_scrub()}
 
 <section class="intent">
 <div class="wrap intent__in">
@@ -200,6 +199,8 @@ every major brand, replacements sized to the house, and sheet metal built to fit
   ("detail-head", "Ductless mini-split head vane detail"),
 ])}
 </section>
+
+{T.thermal_scrub()}
 
 <section class="section section--ink section--process">
 <div class="wrap">

@@ -558,7 +558,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <link rel="preload" as="style" href="/assets/css/site.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 {pre}
 <link rel="stylesheet" href="/assets/css/site.css">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
