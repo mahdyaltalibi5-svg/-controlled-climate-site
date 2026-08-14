@@ -1171,7 +1171,7 @@ body {
   border: 1px solid rgba(255,255,255,.14);
   border-bottom: 0;
   font-family: var(--mono);
-  font-size: .58rem;
+  font-size: .64rem;
   text-transform: uppercase;
 }
 
@@ -1507,5 +1507,320 @@ body {
   }
   .qform {
     padding: 22px 18px;
+  }
+}
+
+/* ==========================================================================
+   v5 — softer premium finish
+   Manrope replaces the harsher utility feel, panels get more even, and the
+   interface keeps the steel/ember/frost palette without reading as boxy.
+   ========================================================================== */
+
+:root {
+  --sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --r: 8px;
+  --line: #dce2e7;
+  --haze: #f1f5f7;
+  --haze-2: #f8fafb;
+  --shadow-sm: 0 14px 34px -28px rgba(18,22,26,.42);
+  --shadow-md: 0 22px 58px -38px rgba(18,22,26,.5);
+  --shadow-lg: 0 34px 86px -50px rgba(18,22,26,.62);
+}
+
+body {
+  font-size: 16.5px;
+  line-height: 1.72;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  line-height: 1.06;
+}
+
+h1 {
+  font-size: clamp(2.55rem, 5.7vw, 4.8rem);
+}
+
+h2 {
+  font-size: clamp(1.82rem, 3.55vw, 2.85rem);
+}
+
+h3 {
+  font-size: clamp(1.1rem, 1.55vw, 1.26rem);
+}
+
+.plate,
+.eyebrow,
+.brand__sub,
+.hdr__phone,
+.trust__k,
+.trust__l,
+.field label,
+.hero__rail span,
+.intent__item span,
+.intent__item small,
+.card__tag,
+.card__more,
+.shot__t,
+.rev__m,
+.proof__k,
+.ftr h4,
+.ftr__phone,
+.callbar a,
+.crumbs,
+.fab__txt small,
+.scrub__temp,
+.scrub__mode,
+.scrub__labels,
+.scrub__list a,
+.stat__k,
+.stat__l,
+.tbl th,
+.tag {
+  font-family: var(--mono);
+  letter-spacing: 0;
+}
+
+.eyebrow,
+.brand__sub,
+.trust__l,
+.field label,
+.hero__rail span,
+.intent__item span,
+.intent__item small,
+.card__tag,
+.card__more,
+.shot__t,
+.rev__m,
+.proof__k,
+.ftr h4,
+.callbar a,
+.crumbs,
+.fab__txt small,
+.scrub__mode,
+.scrub__labels,
+.stat__l,
+.tbl th,
+.hero__formtop {
+  text-transform: none;
+  font-weight: 700;
+}
+
+.plate {
+  border-radius: 8px;
+  padding: 9px 16px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 12px 32px -28px rgba(18,22,26,.5);
+}
+
+.plate::before,
+.plate::after {
+  display: none;
+}
+
+.eyebrow {
+  font-size: .72rem;
+  color: var(--frost-dk);
+}
+
+.eyebrow::before {
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+}
+
+.hdr {
+  background: rgba(250,252,253,.82);
+}
+
+.nav {
+  border-radius: 8px;
+  box-shadow: 0 12px 34px -30px rgba(18,22,26,.32);
+}
+
+.nav a {
+  font-weight: 750;
+}
+
+.brand__name {
+  font-weight: 800;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: clamp(3rem, 5.15vw, 5.25rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+.hero__lede {
+  color: #e0e7ec;
+}
+
+.hero__rail span {
+  border-radius: 8px;
+  font-size: .68rem;
+  background: rgba(255,255,255,.075);
+}
+
+.trust {
+  gap: 12px;
+}
+
+.trust__i {
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.trust__k {
+  font-weight: 800;
+}
+
+.qform,
+.hero__formtop {
+  border-radius: 8px;
+}
+
+.hero__formtop {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hero__formtop + .qform {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.field input,
+.field select,
+.field textarea {
+  border-radius: 8px;
+}
+
+.intent__grid {
+  align-items: stretch;
+}
+
+.intent__item {
+  min-height: 154px;
+  border-radius: 8px;
+  border-color: rgba(213,219,225,.78);
+}
+
+.intent__item span,
+.intent__item small {
+  font-size: .68rem;
+}
+
+.intent__item strong {
+  font-weight: 800;
+}
+
+.card {
+  min-height: 232px;
+  border-radius: 8px;
+  padding: 30px 28px;
+}
+
+.card__tag {
+  margin-bottom: 22px;
+  border-radius: 8px;
+  font-size: .66rem;
+}
+
+.card p {
+  font-size: .96rem;
+}
+
+.section--process .steps {
+  gap: 14px;
+  background: transparent;
+  border: 0;
+}
+
+.section--process .step {
+  border-radius: 8px;
+  min-height: 270px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.095), rgba(255,255,255,.038));
+}
+
+.section--process .step::before {
+  border-radius: 8px;
+  margin-bottom: 28px;
+}
+
+.shot,
+.shot__cap,
+.banner,
+.proof,
+.rev,
+.stat {
+  border-radius: 8px;
+}
+
+.shot {
+  overflow: hidden;
+}
+
+.shot__cap {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.proof,
+.rev {
+  min-height: 238px;
+}
+
+.chips a,
+.chips span,
+.scrub__list a,
+.fab {
+  border-radius: 8px;
+}
+
+.callbar {
+  gap: 0;
+}
+
+.callbar a strong {
+  font-family: var(--sans);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.56rem, 12vw, 3.28rem);
+    max-width: 13ch;
+  }
+
+  .hero__rail {
+    gap: 7px;
+  }
+
+  .hero__rail span {
+    font-size: .62rem;
+  }
+
+  .trust__i {
+    padding: 15px 16px;
+  }
+
+  .card,
+  .intent__item,
+  .section--process .step {
+    min-height: 0;
   }
 }
