@@ -321,7 +321,13 @@
 
   var t = 0.5, raf = null, lastSide = null;
 
+  function clampT(v) {
+    v = Number(v);
+    return Number.isFinite(v) ? Math.min(1, Math.max(0, v)) : 0.5;
+  }
+
   function render() {
+    t = clampT(t);
     scrub.style.setProperty("--t", t.toFixed(3));
     /* 62°F at full cold through 74°F at full hot — a thermostat range, not a gimmick */
     tempEl.textContent = Math.round(62 + t * 12) + "\u00B0";
@@ -341,7 +347,7 @@
 
   function setFromX(clientX) {
     var r = track.getBoundingClientRect();
-    t = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+    t = r.width ? clampT((clientX - r.left) / r.width) : t;
     if (!raf) raf = requestAnimationFrame(function () { raf = null; render(); });
   }
 
@@ -361,8 +367,8 @@
 
   track.addEventListener("keydown", function (e) {
     var step = e.shiftKey ? 0.2 : 0.05;
-    if (e.key === "ArrowRight" || e.key === "ArrowUp") { t = Math.min(1, t + step); }
-    else if (e.key === "ArrowLeft" || e.key === "ArrowDown") { t = Math.max(0, t - step); }
+    if (e.key === "ArrowRight" || e.key === "ArrowUp") { t = clampT(t + step); }
+    else if (e.key === "ArrowLeft" || e.key === "ArrowDown") { t = clampT(t - step); }
     else if (e.key === "Home") { t = 0; }
     else if (e.key === "End") { t = 1; }
     else return;
@@ -380,7 +386,7 @@
         (function anim(ts) {
           if (!t0) t0 = ts;
           var k = Math.min((ts - t0) / 1100, 1);
-          t = from + (to - from) * (1 - Math.pow(1 - k, 3));
+          t = clampT(from + (to - from) * (1 - Math.pow(1 - k, 3)));
           render();
           if (k < 1) requestAnimationFrame(anim);
         })();

@@ -254,7 +254,7 @@ LOGO = """<svg class="brand__mark" viewBox="0 0 100 100" aria-hidden="true" focu
 <linearGradient id="ccIce" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#4fb3cc"/><stop offset="100%" stop-color="#14606f"/></linearGradient>
 </defs>
-<text font-family="var(--mono, monospace)" font-size="10.5" font-weight="500" letter-spacing="1.1"
+<text font-family="var(--mono, monospace)" font-size="10.5" font-weight="500" letter-spacing="0"
       fill="currentColor"><textPath href="#ccArc" startOffset="50%" text-anchor="middle">CONTROLLED CLIMATE</textPath></text>
 <path d="M50 34c5 6 9 11 9 16.5 0 3-1.7 5.4-4.3 6.6 1-2.6.4-5.2-1.6-7.4.1 2.6-.8 4.3-2.6 5.2-1.6.8-3.3.2-3.9-1.4-.5-1.4 0-2.8 1.2-4-2.9 1.4-4.6 3.9-4.6 7 0 .2 0 .4.1.6-2-1.3-3.3-3.5-3.3-6.6C40 45 45 39.9 50 34z" fill="url(#ccFlame)"/>
 <path d="M23 60h54l-27-9z" fill="#0f1c22" opacity=".92"/>
@@ -338,7 +338,7 @@ def footer():
 </div>
 <div><h4>Services</h4><ul>{svc_links}</ul></div>
 <div><h4>Service areas</h4><ul>{loc_links}<li><a href="/service-areas/">All areas →</a></li></ul></div>
-<div><h4>Hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:.04em">{''.join(hrs)}</ul>
+<div><h4>Hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:0">{''.join(hrs)}</ul>
 <h4 style="margin-top:26px">More</h4><ul><li><a href="/about/">About</a></li>
 <li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li>
 <li><a href="/sitemap/">Site map</a></li>
@@ -413,6 +413,8 @@ def thermal_scrub():
                   ["Gas lines", "/services/gas-lines/"],
                   ["Tune-ups", "/services/maintenance/"]],
     })
+    cold = cold.replace("&", "&amp;").replace("'", "&#39;")
+    hot = hot.replace("&", "&amp;").replace("'", "&#39;")
     return f"""<section class="scrub" data-scrub data-cold='{cold}' data-hot='{hot}'>
 <div class="scrub__bg">
 <img class="is-cold" src="/assets/img/mini-split-outdoor-1400.jpg" alt="" loading="lazy" decoding="async" width="1400" height="1050">
@@ -553,11 +555,6 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{DOMAIN}/assets/img/{og_image}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500&display=swap"></noscript>
 <link rel="preload" as="style" href="/assets/css/site.css">
 {pre}
 <link rel="stylesheet" href="/assets/css/site.css">

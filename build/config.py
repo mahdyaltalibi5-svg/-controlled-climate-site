@@ -110,6 +110,24 @@ REVIEWS = [
     },
 ]
 
+PROOF_POINTS = [
+    {
+        "kicker": "No heat / no cool",
+        "title": "Same-day help when the system quits.",
+        "copy": "Urgent heating and cooling calls get a real arrival window and a direct path to the phone, because emergencies convert fastest when a human answers.",
+    },
+    {
+        "kicker": "Diagnosis first",
+        "title": "You see the fault before the price.",
+        "copy": "Andrew checks the sequence, readings, airflow, and safety items before recommending a repair or replacement. No mystery invoice after the work is done.",
+    },
+    {
+        "kicker": "Owner-operated",
+        "title": "The person quoting it stands behind it.",
+        "copy": "Controlled Climate is built around one accountable operator, not a rotating sales desk. That keeps the promise simple: straight answers and clean work.",
+    },
+]
+
 # ---------------------------------------------------------------------------
 # 4. SERVICES
 # ---------------------------------------------------------------------------

@@ -15,7 +15,8 @@ from datetime import date
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import (BIZ, HOURS, SERVICES, LOCATIONS, ALSO_SERVED, GALLERY,
-                    REVIEWS, REVIEWS_ARE_PLACEHOLDER, HOME_FAQS, EMERGENCY_LINE)
+                    REVIEWS, REVIEWS_ARE_PLACEHOLDER, PROOF_POINTS, HOME_FAQS,
+                    EMERGENCY_LINE)
 import templates as T
 
 # ---------------------------------------------------------------------------
@@ -61,16 +62,26 @@ def review_card(r):
 
 
 def review_flag():
-    if REVIEWS_ARE_PLACEHOLDER:
-        return ('<div class="placeholder-flag">\u26a0 PLACEHOLDER REVIEWS \u2014 run '
-                '<code>python3 build/reviews.py</code> to pull the real ones from Google, '
-                'or paste them into build/config.py.</div>')
     if GOOGLE_ATTRIB:
-        return ('<p style="font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;'
+        return ('<p style="font-family:var(--mono);font-size:.66rem;letter-spacing:0;'
                 'text-transform:uppercase;color:var(--steel);margin:0 0 22px">Reviews from '
                 f'<a href="{GOOGLE_ATTRIB}" rel="noopener nofollow" target="_blank" '
                 'style="color:var(--ember)">Google</a></p>')
     return ""
+
+
+def proof_card(p):
+    return f"""<article class="proof rv">
+<div class="proof__k">{p['kicker']}</div>
+<h3>{p['title']}</h3>
+<p>{p['copy']}</p>
+</article>"""
+
+
+def social_proof_cards(limit=3):
+    if REVIEWS_ARE_PLACEHOLDER:
+        return "".join(proof_card(p) for p in PROOF_POINTS[:limit])
+    return "".join(review_card(r) for r in REVIEWS[:limit])
 
 
 def write(path, html, priority="0.6", changefreq="monthly", index=True):
@@ -94,7 +105,7 @@ def build_home():
 <figcaption class="shot__cap"><span class="shot__t">{kind} &middot; {where}</span>
 <span class="shot__d">{alt}</span></figcaption></figure>""" for slug, alt, kind, where in GALLERY)
 
-    revs = "".join(review_card(r) for r in REVIEWS[:3])
+    revs = social_proof_cards(3)
     flag = review_flag()
 
     area_chips = "".join(f'<li><a href="/service-areas/{l["slug"]}/">{l["name"]}</a></li>' for l in LOCATIONS)
@@ -148,6 +159,24 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 </div></div></section>
 {T.thermal_scrub()}
 
+<section class="intent">
+<div class="wrap intent__in">
+<div class="intent__head">
+<p class="eyebrow rv">Start here</p>
+<h2 class="rv-mask"><span>Pick the problem. Get the right next step.</span></h2>
+</div>
+<div class="intent__grid">
+<a class="intent__item rv" href="tel:{BIZ['phone_e164']}" data-loc="intent_no_heat" data-phone="href">
+<span>No heat</span><strong>Call now</strong><small>Same-day in most cases</small></a>
+<a class="intent__item rv" href="tel:{BIZ['phone_e164']}" data-loc="intent_no_cool" data-phone="href">
+<span>No cool</span><strong>Call now</strong><small>Fast triage by phone</small></a>
+<a class="intent__item rv" href="/services/furnace-installation/" data-track="intent_replace" data-loc="intent">
+<span>Old system</span><strong>Replacement</strong><small>Right-sized quote</small></a>
+<a class="intent__item rv" href="/services/ductwork-new-construction/" data-track="intent_new_build" data-loc="intent">
+<span>Build / remodel</span><strong>Ductwork</strong><small>Rough-in and sheet metal</small></a>
+</div>
+</div></section>
+
 <section class="section">
 <div class="wrap">
 <p class="eyebrow rv">What we do</p>
@@ -183,7 +212,7 @@ runs the job, which means the person explaining what's wrong is the person who h
 with the fix.</p>
 <p style="margin-top:22px;font-size:1.05rem;color:var(--ink);border-left:3px solid var(--ember);padding-left:18px">
 &ldquo;If a repair gets you through the season, I&rsquo;ll tell you that instead of selling you a system.&rdquo;
-<span style="display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);margin-top:10px">
+<span style="display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:0;text-transform:uppercase;color:var(--steel);margin-top:10px">
 Andrew Scoggan &middot; Owner &amp; operator</span></p>
 <p class="mt-m"><a class="btn btn--ghost" href="/about/">More about the shop</a></p>
 </div>
@@ -206,8 +235,8 @@ No stock images of somebody else's install.</p>
 <p class="eyebrow rv">Reviews</p>
 <div class="phead__grid mb-l">
 <h2 style="margin:0" class="rv-mask"><span>{BIZ['rating']} stars across {BIZ['review_count']} Google reviews.</span></h2>
-<p class="lede" style="margin:0">The reviews say the same three things over and over:
-showed up, explained it, didn't oversell.</p>
+<p class="lede" style="margin:0">The pattern is simple:
+show up, explain the diagnosis, and do not oversell the fix.</p>
 </div>
 {flag}
 <div class="grid grid--3">{revs}</div>
@@ -219,7 +248,7 @@ showed up, explained it, didn't oversell.</p>
   "New construction",
   "The ductwork goes in before anyone can see it.",
   "That is exactly why it gets done properly. Trunk lines, takeoffs, gas piping and "
-  "equipment set and sealed at the framing stage \u2014 laid out so it passes inspection "
+  "equipment set and sealed at the framing stage &mdash; laid out so it passes inspection "
   "the first time and moves air the way the drawings said it would.")}
 
 <section class="section section--haze">
@@ -478,7 +507,7 @@ January or the AC quit in July, call rather than filling out the form — you'll
 # ===========================================================================
 def build_reviews():
     flag = review_flag()
-    revs = "".join(review_card(r) for r in REVIEWS)
+    revs = social_proof_cards(6 if REVIEWS_ARE_PLACEHOLDER else len(REVIEWS))
     gplink = (f'<a class="btn btn--ghost" href="{BIZ["google_profile"]}" rel="noopener" '
               f'data-track="review_outbound" data-loc="reviews_page">Read all on Google</a>'
               if BIZ["google_profile"] else
@@ -488,7 +517,8 @@ def build_reviews():
 <section class="section section--tight"><div class="wrap">
 <p class="eyebrow">Reviews</p>
 <h1>{BIZ['rating']} stars, {BIZ['review_count']} reviews</h1>
-<p class="lede mt-s">Every review below came from a real job in the Salt Lake Valley.</p>
+<p class="lede mt-s">Customers call for speed, clarity, and work that holds up. Controlled
+Climate is built around those three promises on every repair, replacement, and rough-in.</p>
 <div class="mt-l">{flag}</div>
 <div class="grid grid--2">{revs}</div>
 <p class="mt-l">{gplink}</p>
@@ -568,7 +598,7 @@ job without verifying the system under load.</p></div>
 
 def build_contact():
     hrs = "".join(
-        f'<tr><td style="padding:7px 22px 7px 0;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)">{d}</td>'
+        f'<tr><td style="padding:7px 22px 7px 0;font-family:var(--mono);font-size:.78rem;letter-spacing:0;text-transform:uppercase;color:var(--steel)">{d}</td>'
         f'<td style="padding:7px 0;font-family:var(--mono);font-size:.9rem;color:var(--ink)">{T._h(o) + "–" + T._h(c) if o else "Closed"}</td></tr>'
         for d, o, c in HOURS)
     areas = "".join(f'<li><a href="/service-areas/{l["slug"]}/">{l["name"]}</a></li>' for l in LOCATIONS)
