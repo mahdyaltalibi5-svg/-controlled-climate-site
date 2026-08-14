@@ -127,6 +127,17 @@ def build_home():
          "heating, superheat and subcool on cooling. Then we haul our mess out."),
     ]
     step_html = "".join(f"""<div class="step rv"><div><h3>{t}</h3><p>{d}</p></div></div>""" for t, d in steps)
+    discounts = [
+        "Veterans",
+        "Active-duty military",
+        "National Guard &amp; Reserve",
+        "Active law enforcement",
+        "Retired law enforcement",
+        "Active firefighters",
+        "Retired firefighters",
+        "Seniors 65+",
+    ]
+    discount_html = "".join(f'<li><span>{d}</span><strong>10%</strong></li>' for d in discounts)
 
     body = f"""
 <section class="hero">
@@ -198,6 +209,43 @@ every major brand, replacements sized to the house, and sheet metal built to fit
   ("detail-seam", "Sheet metal seam and hanger detail on a duct trunk line"),
   ("detail-head", "Ductless mini-split head vane detail"),
 ])}
+</section>
+
+<section class="section pricing">
+<div class="wrap">
+<div class="phead__grid mb-l">
+<div>
+<p class="eyebrow rv">Pricing transparency</p>
+<h2 style="margin:0" class="rv-mask"><span>Know the entry cost before you call.</span></h2>
+</div>
+<p class="lede rv" style="margin:0">Controlled Climate keeps the first step clear without turning the site into a public price book. Repairs are still diagnosed, explained, and quoted before work begins.</p>
+</div>
+<div class="pricing__grid">
+<article class="pricecard rv">
+<div class="pricecard__top"><span>Standard service</span><small>Mon&ndash;Sat</small></div>
+<dl>
+<div><dt>Dispatch &amp; service call</dt><dd>$99</dd></div>
+<div><dt>Diagnostic</dt><dd>$145</dd></div>
+</dl>
+</article>
+<article class="pricecard pricecard--emergency rv">
+<div class="pricecard__top"><span>Emergency / after-hours</span><small>Urgent calls</small></div>
+<dl>
+<div><dt>Emergency dispatch &amp; service call</dt><dd>$199</dd></div>
+<div><dt>Emergency diagnostic</dt><dd>$245</dd></div>
+</dl>
+</article>
+<article class="support rv">
+<div class="support__head">
+<p class="eyebrow">Who we support</p>
+<h3>Community discounts</h3>
+<p>Available to qualifying customers as a thank-you for service and support in the Salt Lake community.</p>
+</div>
+<ul>{discount_html}</ul>
+</article>
+</div>
+<p class="pricing__note rv">These are initial dispatch, service-call, and diagnostic charges. Any repair, parts, equipment, or additional labor is quoted separately and approved before work begins. Discounts apply to qualifying service work and cannot be combined with other offers.</p>
+</div>
 </section>
 
 {T.thermal_scrub()}

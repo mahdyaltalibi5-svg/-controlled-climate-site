@@ -292,7 +292,7 @@ def header(active=""):
 <div class="wrap hdr__in">
 <a class="brand" href="/" aria-label="{BIZ['name']} home">{brand_mark()}
 <span class="brand__txt"><span class="brand__name">Controlled Climate</span>
-<span class="brand__sub">Heating &amp; Air &middot; Taylorsville UT</span></span></a>
+<span class="brand__sub">Salt Lake</span></span></a>
 <nav class="nav" id="nav" aria-label="Main">{links}</nav>
 <div class="hdr__cta">
 <a class="hdr__phone" href="tel:{TEL}" data-loc="header" data-phone="href"><span data-phone="display">{PHONE}</span></a>
