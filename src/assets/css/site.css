@@ -2778,3 +2778,207 @@ body {
     border-top: 0;
   }
 }
+
+/* ==========================================================================
+   v8 — screenshot fixes: real logo, intent contrast, card balance, form fit
+   ========================================================================== */
+
+img.brand__mark {
+  width: 56px;
+  height: 56px;
+  padding: 4px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #101820;
+  box-shadow: 0 10px 24px -20px rgba(16,24,32,.8);
+  transform: translateY(1px);
+}
+
+.hdr.is-stuck img.brand__mark {
+  width: 50px;
+  height: 50px;
+}
+
+.intent {
+  background:
+    linear-gradient(180deg, #101820 0%, #0f171d 100%);
+}
+
+.intent__in {
+  grid-template-columns: minmax(240px, .58fr) minmax(0, 1.42fr);
+  gap: clamp(30px, 5vw, 70px);
+}
+
+.intent__grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.9vw, 24px);
+}
+
+.intent .intent__item,
+.intent .intent__item:first-child,
+.intent .intent__item:nth-child(2) {
+  min-height: 148px;
+  padding: 22px 20px 20px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 8px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+  box-shadow: none;
+}
+
+.intent .intent__item:first-child,
+.intent .intent__item:nth-child(2) {
+  border-color: transparent;
+  background:
+    linear-gradient(135deg, #f0642d 0%, #d83c13 100%);
+  box-shadow: 0 24px 54px -40px rgba(240,100,45,.9);
+}
+
+.intent .intent__item span,
+.intent .intent__item small,
+.intent .intent__item:first-child span,
+.intent .intent__item:first-child small,
+.intent .intent__item:nth-child(2) span,
+.intent .intent__item:nth-child(2) small {
+  color: rgba(255,255,255,.72);
+}
+
+.intent .intent__item strong,
+.intent .intent__item:first-child strong,
+.intent .intent__item:nth-child(2) strong {
+  color: #fff;
+  font-size: clamp(1.28rem, 2.05vw, 1.76rem);
+  line-height: 1.06;
+  overflow-wrap: normal;
+}
+
+.intent .intent__item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,.42);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid--3 > .card:last-child:nth-child(3n + 1),
+.grid--3 > .shot:last-child:nth-child(3n + 1),
+.grid--3 > .proof:last-child:nth-child(3n + 1) {
+  grid-column: 2;
+}
+
+.qform {
+  background: rgba(255,255,255,.985);
+}
+
+@media (min-width: 941px) {
+  .fab {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .intent__in {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .intent__head h2 {
+    margin-inline: auto;
+  }
+
+  .intent .eyebrow {
+    justify-content: center;
+  }
+
+  .intent__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid--3 > .card:last-child:nth-child(odd),
+  .grid--3 > .shot:last-child:nth-child(odd),
+  .grid--3 > .proof:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: min(100%, 420px);
+    justify-self: center;
+  }
+}
+
+@media (max-width: 760px) {
+  img.brand__mark,
+  .hdr.is-stuck img.brand__mark {
+    width: 50px;
+    height: 50px;
+  }
+
+  .intent__in {
+    text-align: left;
+  }
+
+  .intent .eyebrow {
+    justify-content: flex-start;
+  }
+
+  .intent__grid,
+  .grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--3 > .card:last-child:nth-child(n),
+  .grid--3 > .shot:last-child:nth-child(n),
+  .grid--3 > .proof:last-child:nth-child(n) {
+    grid-column: auto;
+    width: 100%;
+  }
+
+  .intent .intent__item,
+  .intent .intent__item:first-child,
+  .intent .intent__item:nth-child(2) {
+    min-height: 116px;
+  }
+
+  .hero__formwrap {
+    width: min(100%, 500px);
+  }
+
+  .hero__formtop {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .qform {
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 24px 72px -52px rgba(16,24,32,.72);
+  }
+
+  .field {
+    margin-bottom: 11px;
+  }
+
+  .field input,
+  .field select {
+    min-height: 50px;
+    padding-block: 10px;
+  }
+
+  .field textarea {
+    min-height: 74px;
+  }
+}
+
+@media (max-width: 420px) {
+  img.brand__mark,
+  .hdr.is-stuck img.brand__mark {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+}

@@ -32,7 +32,7 @@ BIZ = {
     "owner": "Andrew Scoggan",
     # Drop Andrew's real logo into src/assets/img/ and put the filename here
     # (e.g. "logo.png"). Leave blank to use the built-in vector mark.
-    "logo_file": "",
+    "logo_file": "controlled-climate-logo.png",
     "founded": "",                                       # ⚠️ CONFIRM year founded
     "license": "",                                       # ⚠️ CONFIRM Utah DOPL license #
     "facebook": "https://www.facebook.com/p/Controlled-Climate-Heating-Air-61576416968209/",
