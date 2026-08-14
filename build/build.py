@@ -98,7 +98,7 @@ def write(path, html, priority="0.6", changefreq="monthly", index=True):
 # ===========================================================================
 def build_home():
     svc_cards = "".join(f"""<a class="card card--{s['temp']} rv" href="/services/{s['slug']}/">
-<h3>{s['name']}</h3><p>{s['lede']}</p><span class="card__more">See details</span></a>""" for s in SERVICES)
+<span class="card__tag">{s['temp']}</span><h3>{s['name']}</h3><p>{s['lede']}</p><span class="card__more">See details</span></a>""" for s in SERVICES)
 
     shots = "".join(f"""<figure class="shot rv" style="margin:0">
 <div class="reveal-img">{T.picture(slug, alt, "(max-width: 700px) 100vw, 33vw")}</div>
@@ -144,7 +144,10 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 {T.call_btn('hero', 'btn btn--call', f'Call {BIZ["phone_display"]}')}
 <a class="btn btn--onink-ghost" href="/services/" data-track="nav_services" data-loc="hero">See what we do</a>
 </div>
-<div class="trust intro intro-4">
+<div class="hero__rail intro intro-4" aria-label="Service promises">
+<span>No stock photos</span><span>Repair before replace</span><span>Salt Lake Valley</span>
+</div>
+<div class="trust intro intro-5">
 <div class="trust__i"><div class="trust__k"><span class="count" data-count="{BIZ['rating']}">0.0</span> <span class="stars">{T.stars()}</span></div>
 <div class="trust__l"><span class="count" data-count="{BIZ['review_count']}">0</span> Google reviews</div></div>
 <div class="trust__i"><div class="trust__k">Same&nbsp;day</div>
@@ -155,7 +158,10 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 <div class="trust__l">Price before the work</div></div>
 </div>
 </div>
-<div class="intro intro-5">{T.lead_form('hero', 'Request service')}</div>
+<div class="intro intro-6 hero__formwrap">
+<div class="hero__formtop"><span>Priority callback</span><strong>Mon-Sat</strong></div>
+{T.lead_form('hero', 'Request service')}
+</div>
 </div></div></section>
 {T.thermal_scrub()}
 
@@ -195,7 +201,7 @@ every major brand, replacements sized to the house, and sheet metal built to fit
 ])}
 </section>
 
-<section class="section section--ink">
+<section class="section section--ink section--process">
 <div class="wrap">
 <p class="eyebrow rv">What happens when you call</p>
 <h2 class="mb-m rv-mask" style="max-width:18ch"><span>No mystery pricing, no runaround.</span></h2>

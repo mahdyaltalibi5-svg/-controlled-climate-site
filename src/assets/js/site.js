@@ -9,6 +9,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   window.dataLayer = window.dataLayer || [];
   var CC = (window.CCHA = window.CCHA || {});
   var CFG = CC.config || {};
@@ -182,7 +184,7 @@
   var revealed = document.querySelectorAll(".rv, .rv-mask, .reveal-img");
 
   /* give siblings an increasing --i so they cascade instead of popping */
-  document.querySelectorAll(".grid, .steps, .details, .faq").forEach(function (group) {
+  document.querySelectorAll(".grid, .steps, .details, .faq, .intent__grid, .trust").forEach(function (group) {
     var i = 0;
     [].forEach.call(group.children, function (child) {
       var t = child.matches(".rv, .rv-mask, .reveal-img") ? child
@@ -200,6 +202,21 @@
     revealed.forEach(function (el) { io.observe(el); });
   } else {
     revealed.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* --- tactile hover light ------------------------------------------------ */
+  if (!reduce && window.matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll(".card, .intent__item, .proof, .rev, .btn").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100).toFixed(1) + "%");
+      });
+      el.addEventListener("pointerleave", function () {
+        el.style.removeProperty("--mx");
+        el.style.removeProperty("--my");
+      });
+    });
   }
 
   /* --- counters: numbers tick up the first time they're seen -------------- */
