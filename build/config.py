@@ -16,7 +16,7 @@ before launch.
 BIZ = {
     "name": "Controlled Climate Heating & Air",
     "short_name": "Controlled Climate",
-    "tagline": "Owner-operated. Straight answers, honest pricing, work that holds up.",
+    "tagline": "Owner-led. Technician accountable. Straight answers, honest pricing, work that holds up.",
     "phone_display": "(801) 680-7406",
     "phone_e164": "+18016807406",
     "email": "andrewscogganhvac@gmail.com",
@@ -53,7 +53,7 @@ HOURS = [
     ("Sunday", None, None),
 ]
 
-EMERGENCY_LINE = "After-hours calls answered for no-heat and no-cool emergencies."
+EMERGENCY_LINE = "After-hours calls are monitored for no-heat and no-cool emergencies."
 
 # ---------------------------------------------------------------------------
 # 2. TRACKING  — fill these in, everything else is already wired
@@ -113,18 +113,18 @@ REVIEWS = [
 PROOF_POINTS = [
     {
         "kicker": "No heat / no cool",
-        "title": "Same-day help when the system quits.",
-        "copy": "Urgent heating and cooling calls get a real arrival window and a direct path to the phone, because emergencies convert fastest when a human answers.",
+        "title": "Fast help when the system quits.",
+        "copy": "Urgent heating and cooling calls get priority scheduling, a realistic arrival window, and a direct path to the phone when the schedule allows.",
     },
     {
         "kicker": "Diagnosis first",
         "title": "You see the fault before the price.",
-        "copy": "Andrew checks the sequence, readings, airflow, and safety items before recommending a repair or replacement. No mystery invoice after the work is done.",
+        "copy": "We check the sequence, readings, airflow, and safety items before recommending a repair or replacement. No mystery invoice after the work is done.",
     },
     {
-        "kicker": "Owner-operated",
-        "title": "The person quoting it stands behind it.",
-        "copy": "Controlled Climate is built around one accountable operator, not a rotating sales desk. That keeps the promise simple: straight answers and clean work.",
+        "kicker": "Owner-led",
+        "title": "Technician accountable.",
+        "copy": "Controlled Climate is built around accountable field work, not a rotating sales desk. That keeps the promise simple: straight answers and clean work.",
     },
 ]
 
@@ -143,38 +143,38 @@ SERVICES = [
                 "Diagnostics, ignitors, blower motors, heat exchangers. Call {phone}.",
         "h1": "Furnace repair",
         "lede": "When the heat quits in January, you don't need a sales pitch. You need "
-                "someone to find the fault, tell you what it costs, and fix it.",
+                "someone to find the likely fault, tell you what it costs, and fix it when repair makes sense.",
         "photo": "furnace-service",
         "photo_alt": "Gas furnace and water heater in a Salt Lake Valley basement during a service call",
         "body": [
             ("What we actually check",
              "A no-heat call gets a full sequence-of-operation check, not a parts swap "
              "on a hunch. Thermostat call, ignition, gas valve, flame sensor, pressure "
-             "switch, limit switches, blower, and flue draw. We test the heat exchanger "
-             "for cracks on every furnace over ten years old, because that's a safety "
-             "issue whether or not it's the reason you called."),
+             "switch, limit switches, blower, and flue draw. On older furnaces, we also "
+             "look closely at the heat exchanger when age or symptoms make it a safety "
+             "concern."),
             ("Common faults on Utah furnaces",
-             "Dirty flame sensors and failed hot-surface ignitors cause most short-cycling "
+             "Dirty flame sensors and failed hot-surface ignitors often cause short-cycling "
              "and no-light calls. Pressure switch faults usually trace back to a blocked "
              "intake or condensate line. Blower capacitors fail quietly and cost you "
              "efficiency for months before the motor gives out."),
             ("When repair stops making sense",
              "We'll tell you straight. If the repair is more than about a third of a new "
-             "system and the furnace is past fifteen years, replacing it is usually the "
-             "better spend. If it isn't, we'll say that too — most furnaces we look at "
-             "get fixed, not replaced."),
+             "system and the furnace is past fifteen years, replacement can be the "
+             "better spend depending on the system. If it isn't, we'll say that too — many "
+             "furnaces we look at can still be repaired."),
         ],
         "faqs": [
             ("My furnace turns on then shuts off after a minute. What is that?",
-             "That's short-cycling, and it's most often a dirty flame sensor, a blocked "
+             "That's short-cycling, and it's often a dirty flame sensor, a blocked "
              "flue or intake, or an overheating limit trip from a clogged filter. Change "
              "the filter first — if it keeps doing it, it needs a technician."),
             ("Do you charge a diagnostic fee?",
              "Yes, and we tell you the number before we drive out. It covers the visit "
              "and the diagnosis, and you get a repair price before any work starts."),
             ("How fast can you get here for a no-heat call?",
-             "Same day in most cases during heating season. Call the office and we'll "
-             "tell you a real window, not a guess."),
+             "No-heat calls get priority scheduling during heating season. Call the office "
+             "and we'll tell you the earliest realistic window, not a guess."),
         ],
     },
     {
@@ -235,23 +235,23 @@ SERVICES = [
         "photo_alt": "Goodman air conditioning condenser on a pad outside a Utah home",
         "body": [
             ("The diagnosis actually matters",
-             "A failed run capacitor is an inexpensive part. A seized compressor is a "
-             "system decision. A frozen evaporator coil is usually airflow, not "
+             "A failed run capacitor is usually an inexpensive part. A seized compressor is a "
+             "system decision. A frozen evaporator coil is often airflow, not "
              "refrigerant. We measure superheat and subcool, check static pressure, and "
              "read the actual amp draw before quoting anything."),
             ("On refrigerant",
-             "If your system is low on refrigerant, it has a leak — refrigerant isn't "
+             "If your system is low on refrigerant, it usually has a leak — refrigerant isn't "
              "consumed. We'll find the leak and price the repair instead of selling you "
              "a top-off every summer. Older R-22 systems are a separate conversation; "
              "the refrigerant cost alone often makes replacement the smarter move."),
             ("Utah summers are hard on condensers",
              "Cottonwood, dust, and lawn clippings pack condenser coils and push head "
              "pressure up until the compressor overheats. A coil wash and a clear three "
-             "feet around the unit prevents a large share of the failures we see in July."),
+             "feet around the unit can prevent a large share of the failures we see in July."),
         ],
         "faqs": [
             ("My AC is running but the house isn't cooling. What's wrong?",
-             "Most often a dirty filter or coil restricting airflow, a failed capacitor "
+             "Often a dirty filter or coil restricting airflow, a failed capacitor "
              "on the outdoor unit, or a refrigerant leak. Check the filter and make sure "
              "the outdoor fan is spinning, then call."),
             ("There's ice on the copper line. Should I turn it off?",
@@ -259,8 +259,8 @@ SERVICES = [
              "frozen system can send liquid refrigerant back to the compressor and turn "
              "a small repair into a large one."),
             ("Is it worth repairing an older AC?",
-             "Under ten years, usually yes. Over fifteen with an R-22 charge, the repair "
-             "cost plus refrigerant often approaches a down payment on a new system."),
+             "Under ten years, often yes. Over fifteen with an R-22 charge, the repair "
+             "cost plus refrigerant can approach a down payment on a new system."),
         ],
     },
     {
@@ -273,12 +273,12 @@ SERVICES = [
                 "systems, correct line sets, verified charge. Call {phone}.",
         "h1": "AC replacement & installation",
         "lede": "Two identical air conditioners can perform very differently. The "
-                "difference is almost always the install.",
+                "difference is often the install.",
         "photo": "ac-install",
         "photo_alt": "New Goodman condenser set on a level pad with copper line set",
         "body": [
             ("Matched systems, not mixed parts",
-             "The condenser, evaporator coil, and blower have to be rated as a system to "
+             "The condenser, evaporator coil, and blower should be matched as a system to "
              "hit the SEER2 number on the sticker. Pairing a new condenser to an old coil "
              "is cheaper on the invoice and worse in every other way — capacity, "
              "efficiency, and warranty."),
@@ -296,11 +296,11 @@ SERVICES = [
             ("How long does an AC replacement take?",
              "A straight condenser-and-coil replacement is typically a single day."),
             ("Do I need a new furnace to get a new AC?",
-             "Not always — but the indoor coil and blower have to work with the new "
+             "Not always — but the indoor coil and blower need to work with the new "
              "condenser. If your furnace is near end of life, doing both is usually the "
              "better long-run cost."),
             ("What SEER2 rating should I get?",
-             "For most Salt Lake Valley homes the sweet spot is a mid-tier two-stage "
+             "For many Salt Lake Valley homes the sweet spot is a mid-tier two-stage "
              "system. The jump to the highest-efficiency tier rarely pays back here "
              "unless you run cooling heavily."),
         ],
@@ -325,7 +325,7 @@ SERVICES = [
              "opening ceilings. Any room where you'd rather control temperature "
              "independently than fight the rest of the house for it."),
             ("Heating too, not just cooling",
-             "Modern inverter heat pumps hold usable capacity well below freezing, which "
+             "Many modern inverter heat pumps hold usable capacity well below freezing, which "
              "makes a mini-split a genuine year-round solution here rather than a summer "
              "appliance. In a space with no ducted heat, that's often the whole answer."),
             ("Install quality is visible",
@@ -374,7 +374,7 @@ SERVICES = [
         ],
         "faqs": [
             ("Some rooms never get warm. Is that the furnace?",
-             "Usually not. It's more often duct sizing, a return-air shortage, or leakage "
+             "Not always. It's often duct sizing, a return-air shortage, or leakage "
              "in unconditioned space. That's a measurable problem with a fixable cause."),
             ("Do you work with builders and general contractors?",
              "Yes. New construction rough-in and trim-out are a regular part of what we do."),
@@ -403,7 +403,7 @@ SERVICES = [
              "controls. If it holds temperature and you're losing product when it doesn't, "
              "we work on it."),
             ("Why refrigeration isn't just cold air conditioning",
-             "Refrigeration runs far lower suction temperatures and lives or dies on defrost "
+             "Refrigeration runs far lower suction temperatures and depends heavily on defrost "
              "strategy and superheat control. Plenty of HVAC contractors won't touch it. "
              "We do both, which means one call instead of two vendors."),
             ("Response time is the whole product",
@@ -449,7 +449,7 @@ SERVICES = [
              "in service."),
             ("Permitted and tested",
              "Gas work gets pulled, pressure-tested, and inspected where the jurisdiction "
-             "requires it. This is one area where the shortcut is never worth it."),
+             "requires it. This is one area where shortcuts can create real safety problems."),
         ],
         "faqs": [
             ("Can you run a gas line to my outdoor firepit or grill?",
@@ -476,8 +476,8 @@ SERVICES = [
                 "the last thing between that and your living room.",
         "body": [
             ("Filtration that actually fits",
-             "A one-inch filter jammed into a return grille restricts airflow and catches "
-             "very little. A properly sized media cabinet catches far more and costs the "
+             "A one-inch filter jammed into a return grille can restrict airflow and catch "
+             "less than expected. A properly sized media cabinet can catch far more and costs the "
              "system less static pressure. In a valley that traps PM2.5 for weeks at a "
              "time, that difference is worth having."),
             ("Humidity, both directions",
@@ -493,11 +493,11 @@ SERVICES = [
         "photo_alt": "Duct system and return air pathways in a home under construction",
         "faqs": [
             ("Will a better filter help during inversion season?",
-             "A properly sized media filter or higher-MERV cabinet makes a real difference "
+             "A properly sized media filter or higher-MERV cabinet can make a real difference "
              "on fine particulate. Cramming a high-MERV one-inch filter into an undersized "
-             "slot does not — it just chokes airflow."),
+             "slot can choke airflow."),
             ("Do I need a whole-home humidifier in Utah?",
-             "Most homes here benefit through the winter. It helps with static, dry sinuses, "
+             "Many homes here benefit through the winter. It helps with static, dry sinuses, "
              "and hardwood and trim that shrinks every January."),
             ("What MERV rating should I use?",
              "It depends on what your blower can push. We'll check static pressure before "
@@ -513,7 +513,7 @@ SERVICES = [
         "meta": "Seasonal furnace and air conditioner maintenance in {city} and the Salt "
                 "Lake Valley. Catch failures before the weather does. Call {phone}.",
         "h1": "Tune-ups & maintenance",
-        "lede": "Almost every emergency call we run was visible three months earlier as a "
+        "lede": "A lot of emergency calls are visible months earlier as a "
                 "reading slightly out of spec.",
         "photo": "furnace-service",
         "photo_alt": "Technician's view of a furnace and water heater during a maintenance visit",
@@ -554,8 +554,8 @@ LOCATIONS = [
         "slug": "taylorsville",
         "name": "Taylorsville",
         "primary": True,
-        "lede": "We're based here. Most Taylorsville calls get same-day service in "
-                "heating and cooling season.",
+        "lede": "We're based here. Taylorsville no-heat and no-cool calls get priority "
+                "scheduling in heating and cooling season.",
         "context": "Taylorsville's housing runs heavily to 1970s and 1980s ranch and "
                    "split-level homes, plus newer infill west toward Bangerter. That "
                    "generation of house is now on its second or third furnace, and the "
@@ -632,6 +632,13 @@ LOCATIONS = [
         "landmarks": "5400 South, 4015 West, Utah Olympic Oval, Kearns Junior High area",
     },
     {
+        "slug": "magna",
+        "name": "Magna",
+        "lede": "West-side homes, longer drives, and systems that need clear scheduling and straight answers.",
+        "context": "Magna has a wide mix of older homes, remodeled properties, and west-side lots where equipment access and travel timing matter. We see plenty of aging furnaces, AC systems working hard through dust and summer heat, and ductwork that has been patched as homes changed over time. Clear diagnostics and a realistic arrival window matter here as much as the repair itself.",
+        "landmarks": "Magna Main Street, 3500 South, 8400 West, Cyprus High School, Great Salt Lake State Park area",
+    },
+    {
         "slug": "millcreek",
         "name": "Millcreek",
         "lede": "Mid-century homes near the canyon, with the temperature swings that "
@@ -651,7 +658,7 @@ LOCATIONS = [
                 "brand.",
         "context": "Holladay has bigger footprints on mature lots, often with additions "
                    "layered on over decades. Multiple zones, dual systems, and "
-                   "long duct runs are common, and comfort problems are almost always a "
+                   "long duct runs are common, and comfort problems are often a "
                    "design question rather than a broken part. Worth doing the load "
                    "calculation properly before anyone quotes equipment.",
         "landmarks": "Holladay Village, 6200 South, Highland Drive, Cottonwood Lane",
@@ -663,7 +670,7 @@ LOCATIONS = [
         "context": "Sandy's east-bench homes take real solar gain in the afternoon and "
                    "cool off fast at night, which is hard on a single-stage system that "
                    "only knows full blast or off. Two-stage and variable-speed equipment "
-                   "earns its price difference here more than almost anywhere else in "
+                   "can earn its price difference here more clearly than in many parts of "
                    "the valley.",
         "landmarks": "Sandy Village, 9400 South, 1300 East, Little Cottonwood, "
                      "South Towne",
@@ -677,7 +684,7 @@ LOCATIONS = [
                    "the rest of the valley. Tight envelopes change the math: smaller heating "
                    "loads, more sensitivity to duct balance, and humidity that behaves "
                    "differently than it does in a 1970s house. When a nearly new system "
-                   "isn't keeping a room even, it's almost never the equipment.",
+                   "isn't keeping a room even, the equipment is not always the root cause.",
         "landmarks": "Daybreak, District at South Jordan, 10600 South, Bangerter Highway, "
                      "Oquirrh Lake",
     },
@@ -702,17 +709,45 @@ LOCATIONS = [
         "context": "Riverton runs from older properties on bigger parcels to newer "
                    "subdivisions, so there's no single typical system here. The recurring "
                    "job is a detached garage, shop, or finished basement that the original "
-                   "ductwork was never meant to reach — usually a mini-split or a dedicated "
+                   "ductwork was not originally meant to reach — usually a mini-split or a dedicated "
                    "gas line and unit heater rather than an extension of the main system.",
         "landmarks": "Riverton Main Street, 12600 South, Redwood Road, Western Springs, "
                      "Riverton City Park",
+    },
+    {
+        "slug": "park-city",
+        "name": "Park City",
+        "lede": "Mountain-market HVAC with colder design conditions, second homes, and higher expectations for clean work.",
+        "context": "Park City homes ask more from heating equipment than the valley floor. Elevation, longer winters, radiant and forced-air combinations, vacation homes, and finished mechanical spaces all change the conversation. We approach these calls with scheduling clarity, careful diagnostics, and repair-before-replace thinking where it makes sense for the system.",
+        "landmarks": "Old Town, Jeremy Ranch, Prospector, Deer Valley, Kimball Junction, Pinebrook",
+    },
+    {
+        "slug": "heber",
+        "name": "Heber",
+        "lede": "Cold winters, newer builds, and homeowners who value a contractor willing to travel for quality work.",
+        "context": "Heber homes see colder winter conditions and plenty of newer construction, which means sizing, airflow, combustion safety, and system commissioning matter. The market is worth serving intentionally, not as an afterthought, because the right repair or replacement needs to fit both the equipment and the mountain-valley climate.",
+        "landmarks": "Heber Main Street, Midway Lane, Highway 40, Jordanelle area, Heber Valley Railroad",
+    },
+    {
+        "slug": "midway",
+        "name": "Midway",
+        "lede": "High-comfort homes, cold-weather heating demand, and systems that need careful setup.",
+        "context": "Midway has a mix of custom homes, remodels, vacation properties, and rural-feeling lots where mechanical systems are expected to be quiet, clean, and dependable. We look closely at heating load, airflow, venting, and service access before recommending repairs or replacement options.",
+        "landmarks": "Main Street, Homestead area, Swiss-themed village center, Wasatch Mountain State Park, River Road",
+    },
+    {
+        "slug": "kamas-wanship",
+        "name": "Kamas / Wanship",
+        "lede": "Extended-service mountain communities where reliability and honest scheduling matter.",
+        "context": "Kamas and Wanship are farther from the shop, so these pages are intentionally written around fit, scheduling, and the kind of work worth traveling for. Cold-weather heating, garage and shop comfort, gas lines, mini-splits, and replacement planning are common conversations in this market.",
+        "landmarks": "Kamas Main Street, Wanship, Oakley, Peoa, Mirror Lake Highway, Rockport Reservoir",
     },
 ]
 
 # Additional cities listed but without dedicated pages (yet)
 ALSO_SERVED = [
     "Herriman", "South Salt Lake", "Midvale", "Cottonwood Heights",
-    "Magna", "Bluffdale", "West Bountiful", "Park City",
+    "Bluffdale", "West Bountiful",
 ]
 
 # ---------------------------------------------------------------------------
@@ -737,9 +772,10 @@ GALLERY = [
 # 7. HOMEPAGE FAQs
 # ---------------------------------------------------------------------------
 HOME_FAQS = [
-    ("Who actually shows up?",
-     "Andrew. Controlled Climate is owner-operated — the person who quotes the job is the "
-     "person who runs it. No dispatcher, no rotating subcontractor."),
+    ("Who is responsible for the work?",
+     "Controlled Climate is owner-led and technician accountable. Whether Andrew or a trained "
+     "technician is on the call, the standard is careful diagnosis, clear options, upfront "
+     "pricing, and work we can stand behind."),
     ("What areas do you serve?",
      "We're based in Taylorsville and cover Salt Lake City and the surrounding valley — "
      "West Valley City, West Jordan, South Jordan, Murray, Kearns, Sandy, Draper, "
@@ -748,12 +784,12 @@ HOME_FAQS = [
      "Yes. Rooftop units, commercial refrigeration, walk-in coolers and freezers, and "
      "new-construction rough-in alongside the residential side."),
     ("Do you charge for estimates?",
-     "Estimates are free, always. If your system is down and needs to be diagnosed first, "
+     "Estimates are free for replacement and project pricing. If your system is down and needs to be diagnosed first, "
      "ask about the service call when you phone in — you'll get that number up front, "
      "before anyone drives out."),
     ("How fast can someone get here?",
-     "Same-day service in most cases for no-heat and no-cool calls. Call and we'll give "
-     "you a real arrival window."),
+     "No-heat and no-cool calls get priority scheduling. Call and we'll give "
+     "you the earliest realistic arrival window."),
     ("What brands do you install and service?",
      "We service every major brand. On replacements we install equipment we can stand "
      "behind and get parts for quickly — that matters more than the badge on the front."),

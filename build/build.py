@@ -116,9 +116,9 @@ def build_home():
          "During business hours you get someone who can actually book you, not a "
          "voicemail tree. Tell us the symptom and we'll tell you whether it sounds "
          "urgent."),
-        ("You get a real arrival window",
-         "Not \"sometime Tuesday.\" We tell you the window before we hang up and we "
-         "call ahead when we're on the way."),
+        ("You get the next real window",
+         "Not \"sometime Tuesday.\" We tell you the earliest realistic window before we "
+         "hang up and call ahead when we're on the way."),
         ("Diagnosis before dollars",
          "We find the actual fault and show you what we found. You get the repair "
          "price before anyone touches a wrench."),
@@ -148,7 +148,7 @@ def build_home():
 <div class="hero__grid">
 <div>
 <span class="plate hero__plate intro intro-1"><span class="dot"></span>Taylorsville, UT &middot; Salt Lake Valley</span>
-<h1>{T.headline(["Heat back on.", "<em>Air back cold.</em>", "Same day."])}</h1>
+<h1>{T.headline(["Heat back on.", "<em>Air back cold.</em>", "Done right."])}</h1>
 <p class="hero__lede intro intro-2">{BIZ['tagline']} Furnace and AC repair, replacement, and new
 construction ductwork across Salt Lake County — from the shop in Taylorsville.</p>
 <div class="hero__actions intro intro-3">
@@ -159,9 +159,9 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 <span>No stock photos</span><span>Repair before replace</span><span>Salt Lake Valley</span>
 </div>
 <div class="trust intro intro-5">
-<div class="trust__i"><div class="trust__k"><span class="count" data-count="{BIZ['rating']}">0.0</span> <span class="stars">{T.stars()}</span></div>
-<div class="trust__l"><span class="count" data-count="{BIZ['review_count']}">0</span> Google reviews</div></div>
-<div class="trust__i"><div class="trust__k">Same&nbsp;day</div>
+<div class="trust__i"><div class="trust__k"><span class="count">{BIZ['rating']}</span> <span class="stars">{T.stars()}</span></div>
+<div class="trust__l"><span class="count">{BIZ['review_count']}</span> Google reviews</div></div>
+<div class="trust__i"><div class="trust__k">Priority</div>
 <div class="trust__l">No heat / no cool calls</div></div>
 <div class="trust__i"><div class="trust__k">Licensed</div>
 <div class="trust__l">&amp; insured in Utah</div></div>
@@ -183,7 +183,7 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 </div>
 <div class="intent__grid">
 <a class="intent__item rv" href="tel:{BIZ['phone_e164']}" data-loc="intent_no_heat" data-phone="href">
-<span>No heat</span><strong>Call now</strong><small>Same-day in most cases</small></a>
+<span>No heat</span><strong>Call now</strong><small>Priority scheduling</small></a>
 <a class="intent__item rv" href="tel:{BIZ['phone_e164']}" data-loc="intent_no_cool" data-phone="href">
 <span>No cool</span><strong>Call now</strong><small>Fast triage by phone</small></a>
 <a class="intent__item rv" href="/services/furnace-installation/" data-track="intent_replace" data-loc="intent">
@@ -260,18 +260,18 @@ every major brand, replacements sized to the house, and sheet metal built to fit
 <section class="section section--tight"><div class="wrap">
 <div class="phead__grid" style="align-items:center">
 <div>
-<p class="eyebrow rv">Who shows up</p>
-<h2 style="max-width:16ch" class="rv-mask"><span>You get Andrew, not a dispatcher.</span></h2>
-<p class="lede mt-s">Controlled Climate is owner-operated. Andrew Scoggan quotes the job and
-runs the job, which means the person explaining what's wrong is the person who has to live
-with the fix.</p>
+<p class="eyebrow rv">Who stands behind it</p>
+<h2 style="max-width:16ch" class="rv-mask"><span>Owner-led. Technician accountable.</span></h2>
+<p class="lede mt-s">Controlled Climate is owner-led and built around accountable field work.
+Whether Andrew or a trained technician is on the call, the standard is the same: explain
+what we found, price it clearly, and stand behind the work.</p>
 <p style="margin-top:22px;font-size:1.05rem;color:var(--ink);border-left:3px solid var(--ember);padding-left:18px">
-&ldquo;If a repair gets you through the season, I&rsquo;ll tell you that instead of selling you a system.&rdquo;
+&ldquo;If a repair can get you through the season, we&rsquo;ll tell you that before talking replacement.&rdquo;
 <span style="display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:0;text-transform:uppercase;color:var(--steel);margin-top:10px">
-Andrew Scoggan &middot; Owner &amp; operator</span></p>
+Controlled Climate standard</span></p>
 <p class="mt-m"><a class="btn btn--ghost" href="/about/">More about the shop</a></p>
 </div>
-<div class="banner reveal-img rv--scale rv">{T.picture('furnace-service', 'Andrew servicing a furnace and water heater on a Salt Lake Valley call', "(max-width: 860px) 100vw, 40vw")}</div>
+<div class="banner reveal-img rv--scale rv">{T.picture('furnace-service', 'Controlled Climate service work on a Salt Lake Valley furnace and water heater', "(max-width: 860px) 100vw, 40vw")}</div>
 </div></div></section>
 
 <section class="section section--haze">
@@ -483,11 +483,11 @@ def build_area(loc):
          f"No. {loc['name']} is inside our normal service radius from the shop in "
          f"{BIZ['city']} — there's no travel surcharge."),
         (f"How fast can you get to {loc['name']}?",
-         "Same day in most cases for no-heat and no-cool calls. Call and we'll give you "
-         "a real arrival window before you hang up."),
+         "No-heat and no-cool calls get priority scheduling. Call and we'll give you "
+         "the earliest realistic arrival window before you hang up."),
         (f"Do you handle both repairs and replacements in {loc['name']}?",
          "Both, plus maintenance, ductwork, and new construction. Most systems we look "
-         "at get repaired — we'll tell you honestly when replacement is the better spend."),
+         "at can be repaired — we'll tell you honestly when replacement is the better spend."),
     ]
 
     body = f"""{T.crumbs([("Home", "/"), ("Service areas", "/service-areas/"), (loc['name'], "/" + path + "/")])}
@@ -512,14 +512,15 @@ def build_area(loc):
 <div class="prose__block"><h3>What we see in {loc['name']} homes</h3><p>{loc['context']}</p></div>
 <div class="prose__block"><h3>Neighborhoods and landmarks we cover</h3>
 <p>{loc['landmarks']}, and everything around them. {loc['name']} is inside our standard
-service radius from {BIZ['city']} — no travel surcharge, and usually same-day availability
-during heating and cooling season.</p></div>
+service radius from {BIZ['city']} — no travel surcharge, with priority scheduling for
+no-heat and no-cool calls during heating and cooling season.</p></div>
 <div class="prose__block"><h3>Emergency service</h3><p>{EMERGENCY_LINE} If the heat is out in
 January or the AC quit in July, call rather than filling out the form — you'll get a faster answer.</p></div>
 </div>
 <div id="request" style="position:sticky;top:96px">
 {T.lead_form(loc['slug'], f'Service in {loc["name"]}',
-             sub=f"Tell us what's going on. We'll call back with a real arrival window for {loc['name']}.")}
+             sub=f"Tell us what's going on. We'll call back with the next available window for {loc['name']}.",
+             city_value=loc['name'])}
 </div>
 </div></div></section>
 
@@ -536,13 +537,13 @@ January or the AC quit in July, call rather than filling out the form — you'll
 <ul class="chips">{near_chips}</ul>
 </div></section>
 {T.cta_band(f"Need HVAC service in {loc['name']}?",
-            "Call and talk to someone who works on these systems. Same-day service in most cases.")}"""
+            "Call and talk to someone who works on these systems. No-heat and no-cool calls get priority scheduling.")}"""
 
     write(path, T.page(
         path=path,
         title=f"HVAC {loc['name']}, UT — Furnace & AC Repair | {BIZ['short_name']}",
         description=(f"Furnace and AC repair, replacement, and maintenance in {loc['name']}, Utah. "
-                     f"Same-day service in most cases. {BIZ['rating']} stars, "
+                     f"Priority scheduling for no-heat and no-cool calls. {BIZ['rating']} stars, "
                      f"{BIZ['review_count']} reviews. Call {BIZ['phone_display']}."),
         body=body,
         schema=[T.breadcrumbs_schema([("Home", "/"), ("Service areas", "/service-areas/"),
@@ -579,7 +580,7 @@ Climate is built around those three promises on every repair, replacement, and r
 <p class="mt-l">{gplink}</p>
 </div></section>
 {T.cta_band("Want to be the next one?",
-            "Call and we'll get you on the schedule. Most no-heat and no-cool calls get same-day service.")}"""
+            "Call and we'll get you on the schedule. No-heat and no-cool calls get priority scheduling.")}"""
     write("reviews", T.page(
         path="reviews",
         title=f"Reviews — {BIZ['rating']} Stars from {BIZ['review_count']} Customers | {BIZ['name']}",
@@ -604,7 +605,7 @@ def build_about():
 <div>
 <span class="plate mb-m"><span class="dot"></span>Taylorsville, Utah</span>
 <h1>Straight answers about your system</h1>
-<p class="lede mt-s">{BIZ['name']} is an owner-operated HVAC contractor in {BIZ['city']},
+<p class="lede mt-s">{BIZ['name']} is an owner-led HVAC contractor in {BIZ['city']},
 serving Salt Lake City and the surrounding valley. Heating, cooling, commercial
 refrigeration, gas lines, and new-construction rough-in — residential and commercial.</p>
 </div>
@@ -613,10 +614,10 @@ refrigeration, gas lines, and new-construction rough-in — residential and comm
 <hr class="seam">
 
 <section class="section section--tight"><div class="wrap narrow prose">
-<div class="prose__block"><h3>You get Andrew</h3>
-<p>Andrew Scoggan owns Controlled Climate and runs the calls himself. Not a dispatcher,
-not a rotating subcontractor. That's the whole structure of the business, and it's why the
-quote you get is the quote from the person who has to stand behind the work.</p></div>
+<div class="prose__block"><h3>Owner-led. Technician accountable.</h3>
+<p>Andrew Scoggan leads Controlled Climate, but the promise is bigger than one person
+showing up forever. Every technician is expected to diagnose carefully, explain the
+options, quote before work begins, and leave work they can stand behind.</p></div>
 <div class="prose__block"><h3>Why homeowners call us back</h3>
 <p>Most people's experience with HVAC contractors is a number on an invoice and no
 explanation of how it got there. We do it the other way around: find the actual fault,
@@ -627,7 +628,7 @@ the way they do.</p></div>
 <p>Day to day that means furnace and AC service calls across Salt Lake County. It also
 means walk-in coolers and rooftop units on the commercial side, gas line runs, and duct
 design and sheet metal fabrication for new builds. Both sides make the other better:
-designing duct systems from scratch teaches you why the third bedroom is always warm.</p></div>
+designing duct systems from scratch teaches you why one bedroom can run warm.</p></div>
 <div class="prose__block"><h3>What we won't do</h3>
 <p>Sell you a system you don't need. Quote a replacement without a load calculation.
 Top off a leaking refrigerant charge every summer instead of finding the leak. Leave a
@@ -646,7 +647,7 @@ job without verifying the system under load.</p></div>
                      "valley. Furnace repair, air conditioning, ductwork, and new construction."),
         body=body,
         schema=[T.breadcrumbs_schema([("Home", "/"), ("About", "/about/")]),
-                T.webpage_schema("about", "About", "Owner-operated HVAC in Taylorsville.", "AboutPage"),
+                T.webpage_schema("about", "About", "Owner-led HVAC in Taylorsville.", "AboutPage"),
                 T.person_schema()],
     ), priority="0.6")
 
@@ -665,7 +666,7 @@ def build_contact():
 <div>
 <h1>Get on the schedule</h1>
 <p class="lede mt-s">Fastest route is the phone — someone picks up during business hours.
-If it's after hours, the form gets you a callback first thing.</p>
+If it's after hours, the form gets you into the callback queue.</p>
 
 <div class="mt-l" style="display:flex;flex-wrap:wrap;gap:12px">
 {T.call_btn('contact', 'btn btn--call', f'Call {BIZ["phone_display"]}')}
@@ -681,13 +682,13 @@ If it's after hours, the form gets you a callback first thing.</p>
 <ul class="chips mt-s">{areas}</ul>
 </div>
 <div>{T.lead_form('contact', 'Request a callback',
-      sub="Fill this out and we'll call you back with an arrival window.")}</div>
+      sub="Fill this out and we'll call you back with the next available window.")}</div>
 </div></div></section>"""
     write("contact", T.page(
         path="contact",
         title=f"Contact — {BIZ['name']} | {BIZ['phone_display']}",
         description=(f"Call {BIZ['phone_display']} for furnace and AC service in Taylorsville, Salt "
-                     "Lake City, and the surrounding valley. Same-day service in most cases."),
+                     "Lake City, and the surrounding valley. Priority scheduling for no-heat and no-cool calls."),
         body=body,
         schema=[T.breadcrumbs_schema([("Home", "/"), ("Contact", "/contact/")]),
                 T.webpage_schema("contact", "Contact", "Call for furnace and AC service.", "ContactPage"),
@@ -699,7 +700,7 @@ def build_thanks():
     body = f"""<section class="section"><div class="wrap narrow center">
 <span class="plate mb-m"><span class="dot"></span>Request received</span>
 <h1>Got it — we'll call you back.</h1>
-<p class="lede" style="margin:18px auto 0">Usually within the hour during business hours. If it's
+<p class="lede" style="margin:18px auto 0">We'll get back to you with the next available window. If it's
 urgent and you'd rather not wait, call us directly.</p>
 <div class="hero__actions" style="justify-content:center;margin-top:32px">
 {T.call_btn('thank_you', 'btn btn--call', f'Call {BIZ["phone_display"]}')}

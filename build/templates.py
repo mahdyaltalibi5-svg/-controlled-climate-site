@@ -3,6 +3,7 @@
 
 import json
 import os
+import html as _html
 from config import BIZ, HOURS, TRACKING, SERVICES, LOCATIONS, ALSO_SERVED, EMERGENCY_LINE
 
 DOMAIN = BIZ["domain"].rstrip("/")
@@ -464,11 +465,12 @@ def headline(lines):
     return "".join(f'<span class="reveal-line"><span>{l}</span></span>' for l in lines)
 
 
-def lead_form(name="quote", heading="Request service", sub=None, service_default=""):
+def lead_form(name="quote", heading="Request service", sub=None, service_default="", city_value=""):
     opts = "".join(
         f'<option value="{s["name"]}"{" selected" if s["slug"] == service_default else ""}>{s["name"]}</option>'
         for s in SERVICES)
-    sub = sub or "Tell us what's going on and we'll call you back. Same-day service in most cases."
+    sub = sub or "Tell us what's going on and we'll call you back with the next available window."
+    city_attr = f' value="{_html.escape(city_value, quote=True)}"' if city_value else ""
     return f"""<form class="qform" data-lead="{name}" novalidate>
 <h2>{heading}</h2>
 <p class="qform__sub">{sub}</p>
@@ -477,7 +479,7 @@ def lead_form(name="quote", heading="Request service", sub=None, service_default
 <div class="field"><label for="{name}-p">Phone</label>
 <input id="{name}-p" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
 <div class="field"><label for="{name}-c">City</label>
-<input id="{name}-c" name="city" type="text" autocomplete="address-level2" placeholder="Taylorsville"></div>
+<input id="{name}-c" name="city" type="text" autocomplete="address-level2" placeholder="Taylorsville"{city_attr}></div>
 <div class="field"><label for="{name}-s">What do you need?</label>
 <select id="{name}-s" name="service"><option value="">Not sure yet</option>{opts}</select></div>
 <div class="field"><label for="{name}-m">Details</label>
@@ -490,8 +492,8 @@ def lead_form(name="quote", heading="Request service", sub=None, service_default
 </form>"""
 
 
-def cta_band(title="Need it fixed today?",
-             copy="Call and talk to someone who works on these systems, not a call centre. Same-day service in most cases across the Salt Lake Valley."):
+def cta_band(title="Need it fixed soon?",
+             copy="Call and talk to someone who works on these systems, not a call center. No-heat and no-cool calls get priority scheduling across the Salt Lake Valley."):
     return f"""<section class="band"><div class="wrap band__in">
 <div><h2 class="rv-mask"><span>{title}</span></h2><p class="rv">{copy}</p></div>
 <div class="band__actions">{call_btn('band', 'btn btn--call')}

@@ -229,6 +229,10 @@
         var el = en.target;
         var target = parseFloat(el.dataset.count);
         var dec = (el.dataset.count.split(".")[1] || "").length;
+        if (dec > 0) {
+          el.textContent = el.dataset.count;
+          return;
+        }
         var t0 = null;
         function step(t) {
           if (!t0) t0 = t;
