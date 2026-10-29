@@ -19,3 +19,5 @@
 .cc-comfort__dial small{font-size:.65rem;letter-spacing:.14em;color:#f0d2ba}.cc-comfort__dial strong{color:white;font-size:clamp(4rem,7vw,7rem);letter-spacing:-.09em;line-height:1.2;font-variant-numeric:tabular-nums}
 .cc-comfort__hint{font-size:.56rem;letter-spacing:.15em;color:#fdbb85}
 @media(max-width:750px){.cc-experience{height:420svh;min-height:2350px}.cc-journey__copy{left:6%;bottom:20%}.cc-journey__copy h2{font-size:3.2rem}.cc-comfort__copy{bottom:12%;left:6%;right:6%}.cc-comfort__copy h2{font-size:3.4rem}.cc-comfort__copy p{max-width:280px;font-size:.9rem}.cc-comfort__dial{top:34%;right:7%;width:172px}.cc-comfort__dial strong{font-size:3.5rem}.cc-comfort__dial small,.cc-comfort__hint{font-size:.5rem}}
+
+.cc-journey__poster,.cc-journey__canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cc-journey__poster{z-index:1}.cc-journey__canvas{z-index:2;opacity:0}.cc-journey__canvas[data-ready='true']{opacity:1}
