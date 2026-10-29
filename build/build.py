@@ -167,54 +167,21 @@ def build_home():
     <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
     <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div></div>
-  <div class="cc-experience__layer cc-experience__layer--duct-in" data-cc-layer="duct-in">
-    <img class="cc-ref__tunnel-img cc-ref__tunnel-img--in" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" loading="lazy" decoding="async">
-    <div class="cc-ref__tunnel-light" aria-hidden="true"></div>
-    <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>66°</b><span>HEATING</span></div>
+  <div class="cc-experience__layer cc-experience__layer--journey" data-cc-layer="journey">
+    <video data-cine="journey" class="cc-cine-video cc-journey__video" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/55187a87-b0f9-4afa-953b-57ec7fdf05cc.mp4" type="video/mp4"></video>
+    <div class="cc-journey__shade"></div>
+    <div class="cc-journey__copy cc-journey__copy--a"><span>02 / INSIDE YOUR SYSTEM</span><h2>Heat starts here.</h2></div>
+    <div class="cc-journey__copy cc-journey__copy--b"><span>PRECISION IGNITION</span><h2>Blue flame.<br>Good sign.</h2></div>
+    <div class="cc-journey__copy cc-journey__copy--c"><span>WARM AIR IN MOTION</span><h2>Comfort flows.</h2></div>
   </div>
-  <div class="cc-experience__layer cc-experience__layer--furnace cc-furnace" data-cc-layer="furnace" data-furnace-scroll>
-   <div class="cc-furnace__stage">
-    <div class="cc-furnace__media">
-     <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225215_741f25fa-06e6-4a6c-bc09-c0bbd72f0d70.png" alt="" class="cc-furnace__poster" decoding="async">
-     <video class="cc-cine-video cc-cine-video--fire" data-cine="fire" muted playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/2527ab98-2d73-4702-a377-20ba13bc1ccc.mp4" type="video/mp4"></video>
+  <div class="cc-experience__layer cc-experience__layer--comfort" data-cc-layer="comfort">
+    <img class="cc-comfort__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="Warm sunlit living room" decoding="async" loading="eager">
+    <div class="cc-comfort__shade"></div>
+    <div class="cc-comfort__copy"><span>03 / HOME COMFORT</span><h2>Warm. Finally.</h2><p>Turn up the heat. Experience dependable comfort at home.</p><a href="/contact/">Book a tech <span aria-hidden="true">↗</span></a></div>
+    <div class="cc-comfort__dial" data-dial role="slider" tabindex="0" aria-label="Set thermostat temperature" aria-valuemin="60" aria-valuemax="80" aria-valuenow="69" aria-valuetext="69 degrees Fahrenheit">
+      <svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="88" stroke="rgba(255,255,255,.35)" stroke-width="10" fill="none"/><circle data-dial-progress cx="110" cy="110" r="88" stroke="#f5a057" stroke-width="10" fill="none" stroke-linecap="round" transform="rotate(-90 110 110)" stroke-dasharray="552.92" stroke-dashoffset="304"/></svg>
+      <small>HEATING / SET TO</small><strong><span data-cc-temp>69</span>°</strong><span class="cc-comfort__hint">DRAG TO ADJUST</span>
     </div>
-    <div class="cc-furnace__veil"></div>
-    <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>66°</b><span>HEATING</span></div>
-    <div class="cc-furnace__detail"><span class="cc-furnace__kicker">HEATING / 02</span><h2>Blue flame.<br>Good sign.</h2><p>Clean, steady ignition is a reassuring sign your furnace is running as it should.</p></div>
-    <div class="cc-furnace__progress"><span>HEATING / 02</span><i></i><span>SCROLL TO EXPLORE</span></div>
-   </div>
-  </div>
-  <div class="cc-experience__layer cc-experience__layer--duct-out" data-cc-layer="duct-out">
-    <img class="cc-ref__tunnel-img cc-ref__tunnel-img--out" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" loading="lazy" decoding="async">
-    <div class="cc-ref__tunnel-light" aria-hidden="true"></div>
-    <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>68°</b><span>HEATING</span></div>
-  </div>
-  <div class="cc-experience__layer cc-experience__layer--warm" data-cc-layer="warm">
-    <img class="cc-ref__warm-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="A sunlit home interior with comfortable seating and hardwood floors" loading="lazy" decoding="async">
-    <div class="cc-ref__warm-shade"></div>
-    <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>69°</b><span>HEATING</span></div>
-    <div class="cc-ref__warm-copy"><span class="cc-furnace__kicker">HOME COMFORT</span><h2>Warm. Finally.</h2><p>Reliable warmth, right where you need it.</p><a href="/services/furnace-repair/">Explore heating <span aria-hidden="true">↗</span></a></div>
-  </div>
-  <div class="cc-experience__layer cc-experience__layer--editorial" data-cc-layer="editorial">
-   <div class="cc-ref__editorial-page">
-    <div class="cc-ref__editorial-inner">
-     <div class="cc-ref__editorial-heading"><span class="cc-ref__smallcaps">TRY IT</span><h2>Turn up the heat.</h2><p>Drag the dial. This is the sweet spot, before and after a properly tuned, balanced system.</p></div>
-     <div class="cc-ref__room-card">
-      <img class="cc-ref__card-image" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="Warm, sunlit living room" loading="lazy" decoding="async">
-      <div class="cc-ref__room-wash"></div>
-      <div class="cc-ref__room-caption"><small>THE FEELING</small><p>Even heat in every room.<br>Feels like home.</p></div>
-      <div class="cc-room__thermostat" aria-label="Interactive thermostat temperature control">
-       <span class="cc-ref__thermo-tiny">HEAT / AUTO</span>
-       <svg viewBox="0 0 220 220" class="cc-ref__dial-svg" aria-hidden="true"><circle cx="110" cy="110" r="90" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="10" stroke-dasharray="430 566" transform="rotate(135 110 110)"/><circle class="cc-ref__dial-progress" cx="110" cy="110" r="90" fill="none" stroke="#ee8c43" stroke-width="10" stroke-linecap="round" stroke-dasharray="270 566" transform="rotate(135 110 110)"/></svg>
-       <span class="cc-room__degree"><span data-cc-temp>69</span><sup>°</sup></span><span class="cc-ref__thermo-mode">HEATING</span>
-       <button class="cc-ref__temp-hit cc-ref__temp-hit--minus" type="button" data-cc-temp-change="-1" aria-label="Lower set temperature">−</button>
-       <button class="cc-ref__temp-hit cc-ref__temp-hit--plus" type="button" data-cc-temp-change="1" aria-label="Raise set temperature">+</button>
-      </div>
-     </div>
-     <div class="cc-ref__room-under"><p>House stuck at “Frost on the glass” no matter what the thermostat says? That’s usually airflow, not the thermostat.</p><a href="/services/furnace-repair/">Explore cold rooms <span aria-hidden="true">↗</span></a></div>
-    </div>
-    <div class="cc-ref__bottom-book"><span><small>SAME-DAY SERVICE</small><b>Tune-ups from $139</b></span><a href="/contact/">Book a tech <span aria-hidden="true">→</span></a></div>
-   </div>
   </div>
   <div class="cc-experience__blend cc-experience__blend--cold" aria-hidden="true"></div>
   <div class="cc-experience__blend cc-experience__blend--warm" aria-hidden="true"></div>
