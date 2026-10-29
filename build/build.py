@@ -142,7 +142,7 @@ def build_home():
     body = f"""
 <section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
   <div class="cc-inspection__scene">
-    <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate installed outdoor air conditioner', '100vw')}</div>
+    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_214943_00f0dfc5-355b-4472-9cf2-5e05626dacc9.png" alt="" fetchpriority="high"></div>
     <div class="cc-inspection__shade" aria-hidden="true"></div>
     <div class="cc-inspection__photographic-focus" aria-hidden="true"></div><div class="cc-inspection__real3d" aria-hidden="true"><canvas id="cc-real-hvac"></canvas></div>
     <div class="cc-inspection__intro">
