@@ -71,3 +71,7 @@
 .cc-inspection__tech--two{left:22%;top:44%}
 .cc-inspection__tech--three{left:18%;top:72%}
 @media(max-width:760px){.cc-inspection__scrub-video{object-position:48% center}.cc-inspection__tech--one{left:53%!important;top:18%}.cc-inspection__tech--two{top:40%}.cc-inspection__tech--three{top:59%}}
+
+.cc-inspection__frames{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:2;opacity:0;transition:opacity .15s}
+[data-frames-ready='true'] .cc-inspection__frames{opacity:1}
+[data-frames-ready='true'] .cc-inspection__scrub-video{visibility:hidden}
