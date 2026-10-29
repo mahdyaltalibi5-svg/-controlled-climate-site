@@ -59,3 +59,20 @@
 .cc-experience__sticky>.cc-experience__layer--furnace{height:100%!important;min-height:0!important;max-height:100%;}
 .cc-experience__sticky>.cc-experience__layer--furnace>.cc-furnace__stage{height:100%!important;min-height:0!important;max-height:100%;}
 .cc-experience__layer--furnace .cc-furnace__media,.cc-experience__layer--furnace .cc-furnace__canvas{height:100%!important;max-height:100%;}
+
+/* One-gesture chapter progression. Keep the full unit fully exposed at stop two. */
+.cc-experience__layer--hvac .cc-inspection__backdrop{transform-origin:51% 52%;will-change:transform}
+.cc-experience__layer--duct-in,
+.cc-experience__layer--furnace,
+.cc-experience__layer--duct-out,
+.cc-experience__layer--warm{
+ --cc-iris:0vmax;--cc-iris-x:51%;--cc-iris-y:52%;
+ -webkit-mask-image:radial-gradient(circle at var(--cc-iris-x) var(--cc-iris-y),#000 0%,#000 max(0px,calc(var(--cc-iris) - 10vmax)),transparent var(--cc-iris));
+ mask-image:radial-gradient(circle at var(--cc-iris-x) var(--cc-iris-y),#000 0%,#000 max(0px,calc(var(--cc-iris) - 10vmax)),transparent var(--cc-iris));
+}
+.cc-experience__layer--duct-in .cc-ref__tunnel-img,
+.cc-experience__layer--duct-out .cc-ref__tunnel-img{backface-visibility:hidden;will-change:transform}
+.cc-experience__timeline{pointer-events:none}
+@media(prefers-reduced-motion:reduce){
+ .cc-experience__layer--duct-in,.cc-experience__layer--furnace,.cc-experience__layer--duct-out,.cc-experience__layer--warm{mask-image:none;-webkit-mask-image:none}
+}
