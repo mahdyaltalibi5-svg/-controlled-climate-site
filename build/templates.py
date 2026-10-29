@@ -293,11 +293,11 @@ def header(active=""):
 <div class="wrap hdr__in">
 <a class="brand" href="/" aria-label="{BIZ['name']} home">{brand_mark()}
 <span class="brand__txt"><span class="brand__name">Controlled Climate</span>
-<span class="brand__sub">Salt Lake</span></span></a>
+<span class="brand__sub">HEATING &amp; AIR</span></span></a>
 <nav class="nav" id="nav" aria-label="Main">{links}</nav>
 <div class="hdr__cta">
 <a class="hdr__phone" href="tel:{TEL}" data-loc="header" data-phone="href"><span data-phone="display">{PHONE}</span></a>
-{call_btn("header_btn", "btn btn--call", "Call now")}
+<a class="hdr__book" href="/contact/" data-track="header_book" data-loc="header">Book a tech</a>
 <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
 <span></span><span></span><span></span></button>
 </div></div></header>"""
@@ -566,13 +566,14 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 {pre}
 <link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/premium.css?v={ASSET_VERSION}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 {analytics_head()}
 {site_config_js()}
 {ld(*(schema or []))}
 </head>
-<body>
+<body class="{'page--home' if path.strip('/') == '' else 'page--inner'}">
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
 {header(_active_for(path))}
@@ -584,6 +585,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 {callbar()}
 <script src="/assets/js/site.js?v={ASSET_VERSION}" defer></script>
 <script type="module" src="/assets/js/hvac-video-scrub.js?v={ASSET_VERSION}"></script>
+<script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
 
