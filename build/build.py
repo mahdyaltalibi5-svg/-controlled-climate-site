@@ -176,6 +176,28 @@ def build_home():
   </div>
 </section>
 
+<section class="cc-furnace" aria-labelledby="cc-furnace-title" data-furnace-scroll>
+ <div class="cc-furnace__stage">
+  <div class="cc-furnace__media">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225215_741f25fa-06e6-4a6c-bc09-c0bbd72f0d70.png" alt="" class="cc-furnace__poster">
+    <canvas class="cc-furnace__canvas" aria-hidden="true"></canvas>
+  </div>
+  <div class="cc-furnace__veil"></div>
+  <div class="cc-furnace__intro">
+   <span class="cc-furnace__kicker">02 / HEATING SYSTEMS</span>
+   <h2 id="cc-furnace-title">Feel the<br><em>heat.</em></h2>
+   <p>Precision starts at ignition. We inspect the details behind dependable warmth.</p>
+  </div>
+  <div class="cc-furnace__detail">
+   <span class="cc-furnace__kicker">THE HEART OF HOME COMFORT</span>
+   <h2>Turn up<br>the heat.</h2>
+   <p>From ignition to airflow, every component matters when the temperature drops.</p>
+   <a href="/services/furnace-repair/" class="cc-furnace__cta">Explore furnace repair <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="cc-furnace__progress"><span>HEATING / 02</span><i></i><span>SCROLL TO EXPLORE</span></div>
+ </div>
+</section>
+
 <section class="intent" id="cc-problems">
 <div class="wrap intent__in">
 <div class="intent__head">
