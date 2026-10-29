@@ -12,7 +12,7 @@ const SOURCES=["https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1
 const FRAME_COUNT=120,FRAMES_PER_SHEET=10,FRAME_W=1600,FRAME_H=900;
 const low=new Image();low.crossOrigin='anonymous';
 low.src='https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/aeb26cea-ec86-4bf3-b1f2-9e53e2b4e00c.jpg';
-let lowLoaded=false,displayed=-1,frameWidth=0,frameHeight=0,raf=0,lastRequested=-1;
+let lowLoaded=false,displayed=-1,raf=0,lastRequested=-1,position=0,target=0,lastDrawnSheet=-1,visible=true;
 const sheets=new Map();const activeLoads=new Map();const failures=new Set();
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const fade=(a,b,v)=>clamp((v-a)/(b-a));
@@ -22,18 +22,18 @@ function demand(index){
  if(index<0||index>=SOURCES.length||sheets.has(index)||activeLoads.has(index)||failures.has(index))return;
  const img=new Image();img.crossOrigin='anonymous';img.decoding='async';
  activeLoads.set(index,img);
- img.onload=()=>{activeLoads.delete(index);sheets.set(index,img);purge(index);displayed=-1;request()};
+ img.onload=()=>{activeLoads.delete(index);sheets.set(index,img);purge(Math.floor(position*119/10));displayed=-1;request()};
  img.onerror=()=>{activeLoads.delete(index);failures.add(index);request()};
  img.src=SOURCES[index];
 }
 function purge(current){
- for(const i of sheets.keys())if(Math.abs(i-current)>2){sheets.delete(i)}
+ for(const i of sheets.keys())if(Math.abs(i-current)>4 && i!==lastDrawnSheet){sheets.delete(i)}
 }
 function resize(){
  const box=canvas.getBoundingClientRect();
  const scale=Math.min(devicePixelRatio||1,1.5,FRAME_W/Math.max(1,box.width));
  const w=Math.max(1,Math.round(box.width*scale)),h=Math.max(1,Math.round(box.height*scale));
- if(w!==canvas.width||h!==canvas.height){canvas.width=w;canvas.height=h;frameWidth=w;frameHeight=h;displayed=-1}
+ if(w!==canvas.width||h!==canvas.height){canvas.width=w;canvas.height=h;displayed=-1}
 }
 function crop(img,sourceX,sourceY,sourceW,sourceH){
  const w=canvas.width,h=canvas.height,s=Math.max(w/sourceW,h/sourceH);
@@ -58,32 +58,24 @@ function textState(p){
 }
 function render(){
  raf=0;
- const p=progress();const frame=Math.round((FRAME_COUNT-1)*p),sheet=Math.floor(frame/FRAMES_PER_SHEET);
- if(lastRequested!==sheet){lastRequested=sheet;demand(sheet);demand(sheet+1);demand(sheet-1)}
+ target=progress();
+ const delta=target-position;
+ position+=Math.abs(delta)<.0002?delta:delta*.24;
+ const p=position,frame=Math.round(119*p),sheet=Math.floor(frame/10);
+ if(lastRequested!==sheet){lastRequested=sheet;for(let k=-2;k<=2;k++)demand(sheet+k)}
  textState(p);
- if(frame===displayed)return;
- const hi=sheets.get(sheet);
- if(hi){
-  resize();
-  const index=frame%FRAMES_PER_SHEET;
-  crop(hi,(index%2)*FRAME_W,Math.floor(index/2)*FRAME_H,FRAME_W,FRAME_H);
-  displayed=frame;
-  section.dataset.framesReady='true';
-  section.dataset.frameIndex=String(frame);
- }else if(lowLoaded){
-  resize();
-  const i=Math.round(frame*79/119);
-  crop(low,(i%8)*640,Math.floor(i/8)*360,640,360);
-  displayed=frame;
-  section.dataset.framesReady='true';
-  section.dataset.frameIndex=String(frame);
- }else{
-  section.dataset.framesReady='false';
+ const aura=section.querySelector('.cc-inspection__aura');if(aura)aura.style.opacity=String(fade(.36,.67,p)*.3);
+ if(frame!==displayed){
+   const hi=sheets.get(sheet);
+   if(hi){resize();const i=frame%10;crop(hi,(i%2)*FRAME_W,Math.floor(i/2)*FRAME_H,FRAME_W,FRAME_H);displayed=frame;lastDrawnSheet=sheet;section.dataset.framesReady='true';section.dataset.frameIndex=String(frame);section.dataset.frameQuality='high';}
+   else if(displayed<0&&lowLoaded){resize();const i=Math.round(frame*79/119);crop(low,(i%8)*640,Math.floor(i/8)*360,640,360);displayed=frame;section.dataset.framesReady='true';section.dataset.frameIndex=String(frame);section.dataset.frameQuality='preview';}
  }
+ if(Math.abs(target-position)>.0002)request();
 }
 function request(){if(!raf)raf=requestAnimationFrame(render)}
+
 low.onload=()=>{lowLoaded=true;request()};low.onerror=()=>request();
 window.addEventListener('scroll',request,{passive:true});
 window.addEventListener('resize',()=>{displayed=-1;resize();request()},{passive:true});
-demand(0);demand(1);resize();request();
+for(let i=0;i<4;i++)demand(i);resize();request();
 })();
