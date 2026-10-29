@@ -567,6 +567,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 {pre}
 <link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">
 <link rel="stylesheet" href="/assets/css/premium.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/furnace.css?v={ASSET_VERSION}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 {analytics_head()}
@@ -586,6 +587,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <script src="/assets/js/site.js?v={ASSET_VERSION}" defer></script>
 <script type="module" src="/assets/js/hvac-video-scrub.js?v={ASSET_VERSION}"></script>
 <script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
+<script src="/assets/js/furnace.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
 
