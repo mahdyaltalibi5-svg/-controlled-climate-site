@@ -560,6 +560,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <meta property="og:image" content="{DOMAIN}/assets/img/{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="style" href="/assets/css/site.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/inspection.css?v={ASSET_VERSION}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
