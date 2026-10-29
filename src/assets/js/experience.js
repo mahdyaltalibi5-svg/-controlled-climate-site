@@ -11,6 +11,12 @@ const dial=stage.querySelector('.cc-ref__dial-progress');
 const clamp=x=>Math.min(1,Math.max(0,x));
 const ease=(a,b,p)=>{const x=clamp((p-a)/(b-a));return x*x*(3-2*x)};
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hvacVideo=stage.querySelector('[data-cine="hvac"]'),fireVideo=stage.querySelector('[data-cine="fire"]');
+const videos={hvac:hvacVideo,fire:fireVideo};
+const clips={hvac:['https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/6cb02675-9ced-4843-a667-10ca646606cf.mp4','https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/69b3faad-a94f-4d4a-a653-fdd976a53c08.mp4'],fire:['https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/2527ab98-2d73-4702-a377-20ba13bc1ccc.mp4','https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/ece4735a-96e9-44d7-9f9d-d880076c6913.mp4']};
+function playClip(name,reverse=false){const video=videos[name];if(!video)return;const src=clips[name][reverse?1:0];if(video.dataset.source!==src){video.pause();video.src=src;video.dataset.source=src;video.load()}video.currentTime=0;const promise=video.play();if(promise&&promise.catch)promise.catch(()=>{});}
+function stopClips(){Object.values(videos).forEach(v=>v&&v.pause())}
+
 // Each wheel/trackpad gesture advances one deliberately composed scene.
 const stops=[0,.262,.393,.515,.641,.793,.942];
 const labels=['01 / UNIT ASSEMBLED','02 / EVERY PART, CHECKED','03 / WARM AIR','04 / BLUE FLAME','05 / WARM AIR','06 / WARM. FINALLY.','07 / TURN UP THE HEAT'];
@@ -65,9 +71,11 @@ function draw(){
 function snap(index){
  activeStop=Math.max(0,Math.min(stops.length-1,index));
  stage.dataset.targetStep=String(activeStop);
+ const previous=Number(stage.dataset.targetStep||0);
+ if(activeStop!==previous){if(activeStop===1)playClip('hvac',false);else if(activeStop===0&&previous===1)playClip('hvac',true);else if(activeStop===3)playClip('fire',false);else if(activeStop===2&&previous===3)playClip('fire',true);else if(activeStop>3||activeStop===2) {if(fireVideo)fireVideo.pause()}}
  const y=sectionTop()+stops[activeStop]*range();
  window.scrollTo({top:Math.round(y),behavior:'smooth'});
- lockedUntil=performance.now()+850;gestureDelta=0;
+ lockedUntil=performance.now()+1100;gestureDelta=0;
 }
 function inside(){
  const r=stage.getBoundingClientRect();
@@ -114,6 +122,7 @@ window.addEventListener('keydown',onKeys);
 window.addEventListener('touchstart',touchStart,{passive:true});
 window.addEventListener('touchend',touchEnd,{passive:true});
 window.addEventListener('scroll',measure,{passive:true});
+window.addEventListener('visibilitychange',()=>{if(document.hidden)stopClips()});
 window.addEventListener('resize',measure,{passive:true});
 measure();draw();
 })();
