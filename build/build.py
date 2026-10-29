@@ -167,6 +167,11 @@ def build_home():
     <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
     <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div></div>
+  <div class="cc-experience__layer cc-experience__layer--duct-in" data-cc-layer="duct-in">
+    <img class="cc-ref__tunnel-img cc-ref__tunnel-img--in" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" loading="lazy" decoding="async">
+    <div class="cc-ref__tunnel-light" aria-hidden="true"></div>
+    <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>66°</b><span>HEATING</span></div>
+  </div>
   <div class="cc-experience__layer cc-experience__layer--furnace cc-furnace" data-cc-layer="furnace" data-furnace-scroll>
    <div class="cc-furnace__stage">
     <div class="cc-furnace__media">
@@ -179,8 +184,8 @@ def build_home():
     <div class="cc-furnace__progress"><span>HEATING / 02</span><i></i><span>SCROLL TO EXPLORE</span></div>
    </div>
   </div>
-  <div class="cc-experience__layer cc-experience__layer--tunnel" data-cc-layer="tunnel">
-    <img class="cc-ref__tunnel-img" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" loading="lazy" decoding="async">
+  <div class="cc-experience__layer cc-experience__layer--duct-out" data-cc-layer="duct-out">
+    <img class="cc-ref__tunnel-img cc-ref__tunnel-img--out" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" loading="lazy" decoding="async">
     <div class="cc-ref__tunnel-light" aria-hidden="true"></div>
     <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>68°</b><span>HEATING</span></div>
   </div>
