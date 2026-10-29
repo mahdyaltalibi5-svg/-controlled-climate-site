@@ -1,0 +1,40 @@
+/* Continuous three-scene cinematic stage: all layers share the exact same viewport. */
+.cc-experience{position:relative;height:510svh;min-height:3000px;background:#071115;color:white;isolation:isolate}
+.cc-experience__sticky{position:sticky;top:0;height:100svh;min-height:580px;overflow:hidden;isolation:isolate}
+.cc-experience__layer{position:absolute;inset:0;opacity:0;pointer-events:none;will-change:opacity;transform:translateZ(0);overflow:hidden}
+.cc-experience__layer--hvac{opacity:1;z-index:1}
+.cc-experience__layer--furnace{z-index:2}
+.cc-experience__layer--room{z-index:3}
+.cc-experience__layer .cc-inspection__scene,.cc-experience__layer .cc-furnace__stage{position:absolute;inset:0;height:100%;min-height:0;overflow:hidden}
+.cc-experience__layer .cc-furnace{height:100%;min-height:0}
+.cc-experience__layer--room .cc-room__stage{position:absolute;inset:0}
+.cc-experience__layer .cc-inspection__intro,.cc-experience__layer .cc-inspection__final,.cc-experience__layer .cc-furnace__intro,.cc-experience__layer .cc-furnace__detail,.cc-experience__layer .cc-room__copy,.cc-experience__layer .cc-room__thermostat{pointer-events:auto}
+.cc-experience__blend{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;mix-blend-mode:screen}
+.cc-experience__blend--cold{background:radial-gradient(ellipse 55% 66% at 51% 48%,rgba(77,240,220,.39),transparent 75%)}
+.cc-experience__blend--warm{background:radial-gradient(ellipse 64% 67% at 50% 53%,rgba(246,124,49,.48),transparent 76%)}
+.cc-experience__sticky>.cc-chapters{z-index:9}
+.cc-experience__timeline{position:absolute;z-index:10;left:5%;right:5%;bottom:3.4%;display:flex;align-items:center;gap:18px;font-size:.61rem;letter-spacing:.17em;color:#f0f6f5;font-weight:700;pointer-events:none;text-shadow:0 1px 10px #000}
+.cc-experience__track{height:2px;background:rgba(255,255,255,.25);flex:1;max-width:150px}
+.cc-experience__track i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#93efe1,#f2a763);transform:scaleX(0);transform-origin:left}
+.cc-experience .cc-inspection__status,.cc-experience .cc-inspection__scroll,.cc-experience .cc-furnace__progress{display:none}
+.cc-experience__layer .cc-inspection__backdrop{position:absolute;inset:0}
+.cc-room__stage{background:#1d1712;overflow:hidden}
+.cc-room__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.85) contrast(1.06);transform:scale(1.07);will-change:transform}
+.cc-room__amber{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,12,13,.57),transparent 50%,rgba(18,15,13,.30)),linear-gradient(0deg,rgba(9,9,12,.65),transparent 35%);pointer-events:none}
+.cc-room__copy{position:absolute;z-index:3;left:5.3%;bottom:16%;max-width:520px;text-shadow:0 2px 22px #1d100c}
+.cc-room__copy h2{color:#fff;font-size:clamp(3.3rem,6.8vw,7.5rem);line-height:.94;letter-spacing:-.075em;margin:0 0 17px}
+.cc-room__copy h2 em{font-style:normal;color:#eac29b}
+.cc-room__copy p{max-width:370px;color:#fff1e4;line-height:1.6;font-size:clamp(.92rem,1.3vw,1.17rem)}
+.cc-room__cta{display:inline-block;text-decoration:none;color:white;border-bottom:1px solid #f39b4e;font-size:.83rem;font-weight:750;padding:10px 0}
+.cc-room__thermostat{position:absolute;z-index:3;right:8%;top:24%;width:min(305px,31vw);padding:24px 28px;border:1px solid rgba(255,255,255,.35);background:rgba(17,20,23,.45);backdrop-filter:blur(22px);border-radius:18px;box-shadow:0 25px 90px rgba(0,0,0,.3);color:white;text-align:center}
+.cc-room__thermo-label{font-size:.65rem;letter-spacing:.2em;color:#f3e2c8;font-weight:750}
+.cc-room__thermo-dial{width:185px;height:185px;margin:20px auto;border:3px solid rgba(245,168,93,.85);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 0 30px rgba(238,129,44,.1),0 0 30px rgba(244,141,59,.15)}
+.cc-room__degree{font-size:5.1rem;font-weight:600;line-height:1;letter-spacing:-.08em;font-variant-numeric:tabular-nums}
+.cc-room__degree sup{font-size:2.3rem;vertical-align:top;letter-spacing:0}
+.cc-room__thermo-dial small{font-size:.6rem;letter-spacing:.22em;color:#ffca9b;margin-top:12px}
+.cc-room__thermo-buttons{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.61rem;letter-spacing:.1em}
+.cc-room__temp-btn{width:40px;height:40px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(0,0,0,.26);color:white;font-size:1.25rem;cursor:pointer}
+.cc-room__temp-btn:hover{background:rgba(244,142,61,.48)}
+.cc-room__bottom-note{position:absolute;z-index:3;bottom:5%;right:6%;font-size:.68rem;letter-spacing:.12em;color:#fce7ca}
+@media(max-width:750px){.cc-experience{height:490svh;min-height:2600px}.cc-room__photo{object-position:41% center}.cc-room__copy{left:6%;right:6%;bottom:12%}.cc-room__copy h2{font-size:clamp(2.8rem,11vw,4.5rem)}.cc-room__copy p{font-size:.88rem;max-width:300px}.cc-room__thermostat{top:16%;right:5%;width:180px;padding:13px 14px}.cc-room__thermo-dial{width:105px;height:105px;margin:8px auto}.cc-room__degree{font-size:2.9rem}.cc-room__degree sup{font-size:1.2rem}.cc-room__thermo-buttons{font-size:.48rem}.cc-room__temp-btn{width:29px;height:29px}.cc-room__bottom-note{display:none}.cc-experience__timeline{bottom:2%;font-size:.52rem}}
+@media(prefers-reduced-motion:reduce){.cc-experience{height:100svh;min-height:650px}.cc-experience__layer--furnace,.cc-experience__layer--room{display:none}}
