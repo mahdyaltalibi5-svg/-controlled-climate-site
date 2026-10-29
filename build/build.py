@@ -143,7 +143,7 @@ def build_home():
 <section class="cc-experience" aria-label="Controlled Climate cinematic walkthrough" data-cc-experience>
  <div class="cc-experience__sticky" id="cc-inspection">
   <div class="cc-experience__layer cc-experience__layer--hvac" data-cc-layer="hvac"><div class="cc-inspection__scene" >
-    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><canvas class="cc-inspection__frames" aria-hidden="true"></canvas></div>
+    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><video class="cc-cine-video cc-cine-video--hvac" data-cine="hvac" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/6cb02675-9ced-4843-a667-10ca646606cf.mp4" type="video/mp4"></video></div>
     <div class="cc-inspection__shade" aria-hidden="true"></div><div class="cc-inspection__aura" aria-hidden="true"></div>
     
     <div class="cc-inspection__intro">
@@ -176,7 +176,7 @@ def build_home():
    <div class="cc-furnace__stage">
     <div class="cc-furnace__media">
      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225215_741f25fa-06e6-4a6c-bc09-c0bbd72f0d70.png" alt="" class="cc-furnace__poster" decoding="async">
-     <canvas class="cc-furnace__canvas" aria-hidden="true"></canvas>
+     <video class="cc-cine-video cc-cine-video--fire" data-cine="fire" muted playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/2527ab98-2d73-4702-a377-20ba13bc1ccc.mp4" type="video/mp4"></video>
     </div>
     <div class="cc-furnace__veil"></div>
     <div class="cc-ref__temperature-chip"><small>INDOOR TEMP</small><b>66°</b><span>HEATING</span></div>
