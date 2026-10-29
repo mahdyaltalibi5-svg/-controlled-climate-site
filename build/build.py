@@ -142,8 +142,8 @@ def build_home():
     body = f"""
 <section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
   <div class="cc-inspection__scene">
-    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><canvas class="cc-inspection__frames" aria-hidden="true"></canvas><video class="cc-inspection__scrub-video" muted playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215550_54fd91ce-fe8f-44f0-a370-1b36a0c1e9c6.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png"></video></div>
-    <div class="cc-inspection__shade" aria-hidden="true"></div>
+    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><canvas class="cc-inspection__frames" aria-hidden="true"></canvas></div>
+    <div class="cc-inspection__shade" aria-hidden="true"></div><div class="cc-inspection__aura" aria-hidden="true"></div>
     
     <div class="cc-inspection__intro">
       <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
