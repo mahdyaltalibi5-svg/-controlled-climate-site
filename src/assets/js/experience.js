@@ -1,1 +1,57 @@
-(()=>{const stage=document.querySelector('[data-cc-experience]');if(!stage)return;const layers=['hvac','furnace','room'].map(x=>stage.querySelector('[data-cc-layer="'+x+'"]'));const cold=stage.querySelector('.cc-experience__blend--cold'),warm=stage.querySelector('.cc-experience__blend--warm'),track=stage.querySelector('.cc-experience__track i'),chapter=stage.querySelector('[data-cc-chapter]'),room=stage.querySelector('.cc-room__photo'),copy=stage.querySelector('.cc-room__copy'),thermo=stage.querySelector('.cc-room__thermostat');const clamp=x=>Math.max(0,Math.min(1,x));const smooth=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};let target=0,position=0,raf=0;window.__ccSceneProgress={hvac:0,furnace:0,room:0};const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;const updateTarget=()=>{const r=stage.getBoundingClientRect();target=reduced?0:clamp(-r.top/Math.max(1,r.height-innerHeight));request()};function render(){raf=0;position+=(target-position)*.17;if(Math.abs(target-position)<.00025)position=target;const p=position;window.__ccSceneProgress.hvac=smooth(0,.37,p);window.__ccSceneProgress.furnace=smooth(.32,.73,p);window.__ccSceneProgress.room=smooth(.67,1,p);const first=1-smooth(.32,.425,p),third=smooth(.64,.765,p),second=Math.min(smooth(.32,.43,p),1-smooth(.64,.76,p));layers[0].style.opacity=String(first);layers[1].style.opacity=String(second);layers[2].style.opacity=String(third);layers[0].style.pointerEvents=first>.5?'auto':'none';layers[1].style.pointerEvents=second>.5?'auto':'none';layers[2].style.pointerEvents=third>.5?'auto':'none';cold.style.opacity=String((smooth(.29,.35,p)*(1-smooth(.41,.48,p)))*.65);warm.style.opacity=String((smooth(.60,.65,p)*(1-smooth(.74,.80,p)))*.75);if(room)room.style.transform='scale('+(1.08-.065*smooth(.64,1,p))+')';if(copy)copy.style.transform='translate3d(0,'+(20*(1-smooth(.71,.85,p)))+'px,0)';if(thermo)thermo.style.transform='translate3d(0,'+(35*(1-smooth(.68,.86,p)))+'px,0)';if(track)track.style.transform='scaleX('+p+')';if(chapter)chapter.textContent=p<.38?'01 / THE OUTSIDE':p<.7?'02 / THE HEAT':'03 / HOME COMFORT';if(Math.abs(target-position)>.00025)request()}function request(){if(!raf)raf=requestAnimationFrame(render)}addEventListener('scroll',updateTarget,{passive:true});addEventListener('resize',updateTarget,{passive:true});stage.querySelectorAll('[data-cc-temp-change]').forEach(btn=>btn.addEventListener('click',()=>{const n=stage.querySelector('[data-cc-temp]');if(!n)return;const next=Math.max(60,Math.min(80,Number(n.textContent)+Number(btn.dataset.ccTempChange)));n.textContent=String(next)}));updateTarget();render()})();
+(()=>{'use strict';
+const stage=document.querySelector('[data-cc-experience]');if(!stage)return;
+const scenes=['hvac','furnace','tunnel','warm','editorial'].map(k=>stage.querySelector('[data-cc-layer="'+k+'"]'));
+const cold=stage.querySelector('.cc-experience__blend--cold'),hot=stage.querySelector('.cc-experience__blend--warm');
+const tunnel=stage.querySelector('.cc-ref__tunnel-img'),warmImg=stage.querySelector('.cc-ref__warm-img');
+const track=stage.querySelector('.cc-experience__track i'),chapter=stage.querySelector('[data-cc-chapter]');
+const dial=stage.querySelector('.cc-ref__dial-progress');
+const clamp=n=>Math.min(1,Math.max(0,n));
+const ease=(a,b,p)=>{const q=clamp((p-a)/(b-a));return q*q*(3-2*q)};
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let target=0,pos=0,raf=0;
+window.__ccSceneProgress={hvac:0,furnace:0,room:0};
+function measure(){const r=stage.getBoundingClientRect();target=reduce?0:clamp(-r.top/Math.max(1,r.height-innerHeight));queue();}
+const set=(el,key,value)=>{if(el)el.style[key]=value};
+function draw(){
+ raf=0;
+ pos+=(target-pos)*.19;
+ if(Math.abs(target-pos)<.00015)pos=target;
+ const p=pos;
+ // Five measured beats matching the reference's progression, with purposeful overlaps.
+ const hvacExit=ease(.215,.305,p);
+ const furnaceIn=ease(.225,.305,p),furnaceOut=ease(.45,.525,p);
+ const tunnelIn=ease(.452,.514,p),tunnelOut=ease(.545,.612,p);
+ const warmIn=ease(.555,.625,p),warmOut=ease(.735,.82,p);
+ const editorialIn=ease(.755,.845,p);
+ const alphas=[1-hvacExit,furnaceIn*(1-furnaceOut),tunnelIn*(1-tunnelOut),warmIn*(1-warmOut),editorialIn];
+ scenes.forEach((s,i)=>{if(!s)return;set(s,'opacity',String(alphas[i]));set(s,'pointerEvents',alphas[i]>.7?'auto':'none')});
+ // Reveal glowing tunnel through an expanding circular aperture, not a blanket dissolve.
+ const size=4+180*ease(.465,.545,p);
+ set(scenes[2],'clipPath','circle('+size+'% at 50% 50%)');
+ // Warm living room emerges through the bright vanishing point of the tunnel.
+ const roomRadius=2+175*ease(.565,.645,p);
+ set(scenes[3],'clipPath','circle('+roomRadius+'% at 50% 50%)');
+ set(tunnel,'transform','scale('+(1.18+.5*ease(.46,.60,p))+')');
+ set(warmImg,'transform','scale('+(1.095-.085*ease(.575,.73,p))+')');
+ set(cold,'opacity',String(.35*ease(.18,.24,p)*(1-ease(.29,.35,p))));
+ set(hot,'opacity',String(.38*ease(.46,.51,p)*(1-ease(.58,.65,p))));
+ // 0..1 play each clip during its visual ownership, not during a second independent scroll timeline.
+ window.__ccSceneProgress.hvac=ease(0,.265,p);
+ window.__ccSceneProgress.furnace=ease(.255,.49,p);
+ window.__ccSceneProgress.room=ease(.59,.75,p);
+ set(track,'transform','scaleX('+p+')');
+ if(chapter)chapter.textContent=p<.25?'01 / EVERY PART':p<.51?'02 / BLUE FLAME':p<.61?'03 / WARM AIR':p<.79?'04 / WARM. FINALLY.':'05 / TURN UP THE HEAT';
+ stage.dataset.activeScene=['cooling','ignition','duct','living-room','thermostat'][p<.27?0:p<.5?1:p<.6?2:p<.8?3:4];
+ if(Math.abs(target-pos)>.00015)queue();
+}
+function queue(){if(!raf)raf=requestAnimationFrame(draw)}
+stage.querySelectorAll('[data-cc-temp-change]').forEach(btn=>btn.addEventListener('click',()=>{
+ const n=stage.querySelector('[data-cc-temp]');if(!n)return;
+ const temp=Math.max(60,Math.min(80,Number(n.textContent)+Number(btn.dataset.ccTempChange)));
+ n.textContent=String(temp);
+ if(dial)dial.style.strokeDasharray=(150+(temp-60)*12)+' 566';
+}));
+window.addEventListener('scroll',measure,{passive:true});
+window.addEventListener('resize',measure,{passive:true});
+measure();draw();
+})();
