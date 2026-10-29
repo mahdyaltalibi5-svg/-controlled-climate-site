@@ -84,3 +84,12 @@
 .cc-inspection__final h2{font-size:clamp(3rem,4.7vw,5.9rem);letter-spacing:-.075em;line-height:.94}
 .cc-inspection__tech{box-shadow:0 6px 18px rgba(0,0,0,.12);backdrop-filter:blur(5px);padding:9px 12px}
 @media(max-width:760px){.cc-inspection__intro h1{font-size:clamp(2.65rem,9vw,4rem)}.cc-inspection__final h2{font-size:clamp(2.65rem,9vw,4rem)}.cc-inspection__tech{max-width:145px;padding:6px 8px}}
+
+/* Stable scroll composition */
+.cc-inspection{height:255svh;min-height:1480px}
+.cc-inspection__aura{position:absolute;inset:0;z-index:3;opacity:0;pointer-events:none;background:radial-gradient(ellipse 37% 49% at 51% 48%,rgba(95,255,226,.22),transparent 75%);mix-blend-mode:screen}
+.cc-inspection__frames{transition:none!important}
+.cc-inspection__intro,.cc-inspection__final,.cc-inspection__tech{z-index:6}
+.cc-inspection__final{right:5%;bottom:17%;max-width:390px}
+.cc-inspection__tech{background:rgba(6,20,24,.58);backdrop-filter:blur(4px)}
+@media(max-width:760px){.cc-inspection{height:245svh;min-height:1300px}.cc-inspection__final{right:6%;bottom:15%}}
