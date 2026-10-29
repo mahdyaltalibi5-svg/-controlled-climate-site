@@ -41,3 +41,16 @@
 .cc-ref__bottom-book b{font-size:.9rem}
 .cc-ref__bottom-book a{display:flex;align-items:center;gap:20px;padding:13px 24px;background:#fa7535;color:#16171a;text-decoration:none;border-radius:45px;font-size:.78rem;font-weight:750;white-space:nowrap}
 @media(max-width:700px){.cc-experience{height:600svh;min-height:3400px}.cc-ref__temperature-chip{top:13%;right:7%;width:78px}.cc-ref__temperature-chip b{font-size:1.8rem}.cc-ref__warm-copy h2{font-size:3.2rem}.cc-ref__editorial-inner{padding:105px 5% 105px}.cc-ref__editorial-heading h2{font-size:2.9rem}.cc-ref__room-card{height:47vh}.cc-ref__room-card .cc-room__thermostat{right:5%!important;width:145px!important;height:145px!important}.cc-ref__thermo-tiny{font-size:.45rem;top:16%}.cc-experience .cc-ref__room-card .cc-room__degree{font-size:2.65rem}.cc-ref__thermo-mode{font-size:.45rem}.cc-ref__temp-hit{width:25px;height:25px;bottom:8%}.cc-ref__room-caption p{font-size:1rem}.cc-ref__room-under{flex-direction:column;gap:4px;font-size:.68rem}.cc-ref__bottom-book{bottom:2%;width:94%;padding:7px 7px 7px 14px}.cc-ref__bottom-book b{font-size:.75rem}.cc-ref__bottom-book a{padding:11px 15px;font-size:.73rem;gap:6px}}
+
+/* Matched luminous duct bridge: same geometry before and after ignition */
+.cc-experience__layer--duct-in{z-index:2}
+.cc-experience__layer--furnace{z-index:3}
+.cc-experience__layer--duct-out{z-index:4}
+.cc-experience__layer--warm{z-index:5}
+.cc-experience__layer--editorial{z-index:6}
+.cc-experience__layer--duct-in .cc-ref__tunnel-img,
+.cc-experience__layer--duct-out .cc-ref__tunnel-img{transform-origin:50% 50%;filter:contrast(1.07) saturate(.95)}
+.cc-experience__layer--duct-in .cc-ref__temperature-chip,
+.cc-experience__layer--duct-out .cc-ref__temperature-chip{opacity:.75}
+.cc-experience__layer--furnace .cc-furnace__detail{max-width:420px}
+@media(prefers-reduced-motion:reduce){.cc-experience__layer--duct-in,.cc-experience__layer--duct-out{display:none}}
