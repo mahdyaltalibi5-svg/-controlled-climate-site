@@ -1,6 +1,6 @@
 (()=>{
 'use strict';
-const section=document.querySelector('[data-hvac-scroll]');if(!section)return;
+const section=document.querySelector('[data-cc-experience]');if(!section)return;
 const canvas=section.querySelector('.cc-inspection__frames');if(!canvas)return;
 const ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
 const intro=section.querySelector('.cc-inspection__intro');
@@ -17,7 +17,7 @@ const sheets=new Map();const activeLoads=new Map();const failures=new Set();
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const fade=(a,b,v)=>clamp((v-a)/(b-a));
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const progress=()=>{const rect=section.getBoundingClientRect();return reduced?0:clamp(-rect.top/Math.max(1,rect.height-innerHeight))};
+const progress=()=>reduced?0:(window.__ccSceneProgress?.hvac ?? 0);
 function demand(index){
  if(index<0||index>=SOURCES.length||sheets.has(index)||activeLoads.has(index)||failures.has(index))return;
  const img=new Image();img.crossOrigin='anonymous';img.decoding='async';
