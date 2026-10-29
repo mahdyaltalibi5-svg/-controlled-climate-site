@@ -167,56 +167,6 @@ def build_home():
     <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
     <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div></div>
-  <div class="cc-experience__layer cc-experience__layer--furnace cc-furnace" data-cc-layer="furnace" data-furnace-scroll><div class="cc-furnace__stage">
-  <div class="cc-furnace__media">
-    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225215_741f25fa-06e6-4a6c-bc09-c0bbd72f0d70.png" alt="" class="cc-furnace__poster">
-    <canvas class="cc-furnace__canvas" aria-hidden="true"></canvas>
-  </div>
-  <div class="cc-furnace__veil"></div>
-  <div class="cc-furnace__intro">
-   <span class="cc-furnace__kicker">02 / HEATING SYSTEMS</span>
-   <h2 id="cc-furnace-title">Fire up<br><em>the heat.</em></h2>
-   <p>Precision starts at ignition. We inspect the details behind dependable warmth.</p>
-  </div>
-  <div class="cc-furnace__detail">
-   <span class="cc-furnace__kicker">THE HEART OF HOME COMFORT</span>
-   <h2>Engineered<br>for warmth.</h2>
-   <p>From ignition to airflow, every component matters when the temperature drops.</p>
-   <a href="/services/furnace-repair/" class="cc-furnace__cta">Explore furnace repair <span aria-hidden="true">→</span></a>
-  </div>
-  <div class="cc-furnace__progress"><span>HEATING / 02</span><i></i><span>SCROLL TO EXPLORE</span></div>
- </div></div>
-  <div class="cc-experience__layer cc-experience__layer--room" data-cc-layer="room"><div class="cc-room__stage" id="cc-room">
- <img class="cc-room__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="Warm sunlit living room with hardwood floors and comfortable sofa" loading="lazy" decoding="async">
- <div class="cc-room__amber" aria-hidden="true"></div>
- <div class="cc-room__copy">
-  <span class="cc-furnace__kicker">03 / THE COMFORT YOU FEEL</span>
-  <h2>Turn up<br><em>the heat.</em></h2>
-  <p>When winter settles in, home should feel like home. Reliable heating, thoughtfully serviced.</p>
-  <a href="/services/furnace-repair/" class="cc-room__cta">Explore heating services <span aria-hidden="true">↗</span></a>
- </div>
- <div class="cc-room__thermostat" aria-label="Interactive thermostat temperature control">
-  <span class="cc-room__thermo-label">INDOOR COMFORT</span>
-  <div class="cc-room__thermo-dial"><span class="cc-room__degree"><span data-cc-temp>69</span><sup>°</sup></span><small>HEATING</small></div>
-  <div class="cc-room__thermo-buttons"><button type="button" class="cc-room__temp-btn" data-cc-temp-change="-1" aria-label="Lower thermostat temperature">−</button><span>SET TEMPERATURE</span><button type="button" class="cc-room__temp-btn" data-cc-temp-change="1" aria-label="Raise thermostat temperature">+</button></div>
- </div>
- <div class="cc-room__bottom-note">A warmer home starts with care you can count on.</div>
-</div></div>
-  <div class="cc-experience__blend cc-experience__blend--cold" aria-hidden="true"></div>
-  <div class="cc-experience__blend cc-experience__blend--warm" aria-hidden="true"></div>
-  <nav class="cc-chapters" aria-label="Explore our website">
-    <a href="#cc-inspection" class="cc-chapters__link is-active"><span class="cc-chapters__number">01</span><span>EXACTLY WHAT WE CHECK</span></a>
-    <a href="#cc-problems" class="cc-chapters__link"><span class="cc-chapters__number">02</span><span>COMMON PROBLEMS</span></a>
-    <a href="#cc-process" class="cc-chapters__link"><span class="cc-chapters__number">03</span><span>OUR PROCESS</span></a>
-    <a href="#cc-areas" class="cc-chapters__link"><span class="cc-chapters__number">04</span><span>SERVICE AREAS</span></a>
-    <a href="#cc-reviews" class="cc-chapters__link"><span class="cc-chapters__number">05</span><span>REAL REVIEWS</span></a>
-    <a href="#cc-contact" class="cc-chapters__link"><span class="cc-chapters__number">06</span><span>SCHEDULE SERVICE</span></a>
-  </nav>
-  
-  <div class="cc-experience__timeline"><span data-cc-chapter>01 / THE OUTSIDE</span><div class="cc-experience__track"><i></i></div><span>SCROLL TO EXPLORE</span></div>
- </div>
-</section>
-
   <div class="cc-experience__layer cc-experience__layer--furnace cc-furnace" data-cc-layer="furnace" data-furnace-scroll>
    <div class="cc-furnace__stage">
     <div class="cc-furnace__media">
