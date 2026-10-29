@@ -144,15 +144,11 @@ def build_home():
   <div class="cc-inspection__scene">
     <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate installed outdoor air conditioner', '100vw')}</div>
     <div class="cc-inspection__shade" aria-hidden="true"></div>
-    <div class="cc-inspection__model" aria-hidden="true">
-      <canvas class="cc-inspection__canvas"></canvas>
-      <div class="cc-inspection__halo"></div>
-      <div class="cc-inspection__fallback"><span>CONTROLLED CLIMATE</span><strong>ENGINEERED FOR COMFORT.</strong></div>
-    </div>
+    <div class="cc-inspection__photographic-focus" aria-hidden="true"></div>
     <div class="cc-inspection__intro">
       <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
-      <h1>Comfort,<br><em>down to the detail.</em></h1>
-      <p>Heating and cooling done right, across the Salt Lake Valley.</p>
+      <h1>Now the<br>other half.</h1>
+      <p>Your heat pump or AC lives outside all year. Here’s what expert care looks like.</p>
       <div class="cc-inspection__actions">
         {T.call_btn('cinematic-hero','cc-inspection__primary','Call Andrew’s team')}
         <a class="cc-inspection__secondary" href="/contact/">Request service</a>
