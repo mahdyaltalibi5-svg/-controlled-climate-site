@@ -69,9 +69,9 @@ function draw(){
  if(Math.abs(target-pos)>.0002)queue();
 }
 function snap(index){
+ const previous=Number(stage.dataset.targetStep||0);
  activeStop=Math.max(0,Math.min(stops.length-1,index));
  stage.dataset.targetStep=String(activeStop);
- const previous=Number(stage.dataset.targetStep||0);
  if(activeStop!==previous){if(activeStop===1)playClip('hvac',false);else if(activeStop===0&&previous===1)playClip('hvac',true);else if(activeStop===3)playClip('fire',false);else if(activeStop===2&&previous===3)playClip('fire',true);else if(activeStop>3||activeStop===2) {if(fireVideo)fireVideo.pause()}}
  const y=sectionTop()+stops[activeStop]*range();
  window.scrollTo({top:Math.round(y),behavior:'smooth'});
