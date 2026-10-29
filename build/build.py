@@ -142,9 +142,9 @@ def build_home():
     body = f"""
 <section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
   <div class="cc-inspection__scene">
-    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_214943_00f0dfc5-355b-4472-9cf2-5e05626dacc9.png" alt="" fetchpriority="high"></div>
+    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><video class="cc-inspection__scrub-video" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png"></video></div>
     <div class="cc-inspection__shade" aria-hidden="true"></div>
-    <div class="cc-inspection__photographic-focus" aria-hidden="true"></div><div class="cc-inspection__real3d" aria-hidden="true"><canvas id="cc-real-hvac"></canvas></div>
+    
     <div class="cc-inspection__intro">
       <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
       <h1>Now the<br>other half.</h1>
