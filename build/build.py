@@ -140,41 +140,6 @@ def build_home():
     discount_html = "".join(f'<li><span>{d}</span><strong>10%</strong></li>' for d in discounts)
 
     body = f"""
-<section class="hero">
-<div class="hero__media px" data-px="90">{T.picture('ductwork-trunk', '', '100vw', lazy=False)}</div>
-<div class="hero__glow" aria-hidden="true"></div>
-<div class="seam-load"></div>
-<div class="wrap hero__in">
-<div class="hero__grid">
-<div>
-<span class="plate hero__plate intro intro-1"><span class="dot"></span>Taylorsville, UT &middot; Salt Lake Valley</span>
-<h1>{T.headline(["Heat back on.", "<em>Air back cold.</em>", "Done right."])}</h1>
-<p class="hero__lede intro intro-2">{BIZ['tagline']} Furnace and AC repair, replacement, and new
-construction ductwork across Salt Lake County — from the shop in Taylorsville.</p>
-<div class="hero__actions intro intro-3">
-{T.call_btn('hero', 'btn btn--call', f'Call {BIZ["phone_display"]}')}
-<a class="btn btn--onink-ghost" href="/services/" data-track="nav_services" data-loc="hero">See what we do</a>
-</div>
-<div class="hero__rail intro intro-4" aria-label="Service promises">
-<span>No stock photos</span><span>Repair before replace</span><span>Salt Lake Valley</span>
-</div>
-<div class="trust intro intro-5">
-<div class="trust__i"><div class="trust__k"><span class="count">{BIZ['rating']}</span> <span class="stars">{T.stars()}</span></div>
-<div class="trust__l"><span class="count">{BIZ['review_count']}</span> Google reviews</div></div>
-<div class="trust__i"><div class="trust__k">Priority</div>
-<div class="trust__l">No heat / no cool calls</div></div>
-<div class="trust__i"><div class="trust__k">Licensed</div>
-<div class="trust__l">&amp; insured in Utah</div></div>
-<div class="trust__i"><div class="trust__k">Upfront</div>
-<div class="trust__l">Price before the work</div></div>
-</div>
-</div>
-<div class="intro intro-6 hero__formwrap">
-<div class="hero__formtop"><span>Priority callback</span><strong>Mon-Sat</strong></div>
-{T.lead_form('hero', 'Request service')}
-</div>
-</div></div></section>
-
 <section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
   <div class="cc-inspection__scene">
     <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate installed outdoor air conditioner', '100vw')}</div>
