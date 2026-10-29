@@ -54,3 +54,8 @@
 .cc-experience__layer--duct-out .cc-ref__temperature-chip{opacity:.75}
 .cc-experience__layer--furnace .cc-furnace__detail{max-width:420px}
 @media(prefers-reduced-motion:reduce){.cc-experience__layer--duct-in,.cc-experience__layer--duct-out{display:none}}
+
+/* Prevent legacy furnace chapter height from stretching the 1080p frame player. */
+.cc-experience__sticky>.cc-experience__layer--furnace{height:100%!important;min-height:0!important;max-height:100%;}
+.cc-experience__sticky>.cc-experience__layer--furnace>.cc-furnace__stage{height:100%!important;min-height:0!important;max-height:100%;}
+.cc-experience__layer--furnace .cc-furnace__media,.cc-experience__layer--furnace .cc-furnace__canvas{height:100%!important;max-height:100%;}
