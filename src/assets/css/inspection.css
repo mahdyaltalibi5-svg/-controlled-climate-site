@@ -52,3 +52,13 @@
 .cc-inspection__intro,.cc-inspection__final,.cc-inspection__tech{z-index:5}
 @media(max-width:760px){.cc-inspection__real3d{inset:10% -23% 17% -13%}}
 @media(prefers-reduced-motion:reduce){.cc-inspection__real3d{opacity:1}}
+
+/* Final art-direction pass */
+.cc-inspection__backdrop img{filter:saturate(.86) contrast(1.1) brightness(.79);object-position:center 54%;transform:none}
+.cc-inspection__real3d{inset:9% 19% 3% 19%;filter:drop-shadow(0 22px 30px rgba(0,0,0,.46))}
+.cc-inspection__shade{background:linear-gradient(90deg,rgba(2,7,12,.24),transparent 37%,rgba(2,7,12,.30)),linear-gradient(0deg,rgba(2,8,11,.44),transparent 55%)}
+.cc-inspection__intro{bottom:9%;left:4.5%;max-width:310px}
+.cc-inspection__intro h1{font-size:clamp(2.6rem,3.8vw,4.8rem)}
+.cc-inspection__final{bottom:17%;right:4.8%}
+.cc-inspection__tech{border:1px solid rgba(115,247,216,.45);border-left:2px solid #9ffff0;background:rgba(3,16,22,.63);border-radius:4px}
+@media(max-width:760px){.cc-inspection__real3d{inset:18% -30% 13% -22%}.cc-inspection__final{bottom:16%}}
