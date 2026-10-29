@@ -168,7 +168,7 @@ def build_home():
     <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div></div>
   <div class="cc-experience__layer cc-experience__layer--journey" data-cc-layer="journey">
-    <video data-cine="journey" class="cc-cine-video cc-journey__video" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png"><source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_235134_223e7b54-064c-4552-8774-554a46a4d1f1.mp4" type="video/mp4"></video>
+    <img class="cc-journey__poster" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" decoding="async"><canvas class="cc-journey__canvas" data-journey-canvas aria-hidden="true"></canvas>
     <div class="cc-journey__shade"></div>
     <div class="cc-journey__copy cc-journey__copy--a"><span>02 / INSIDE YOUR SYSTEM</span><h2>Heat starts here.</h2></div>
     <div class="cc-journey__copy cc-journey__copy--b"><span>PRECISION IGNITION</span><h2>Blue flame.<br>Good sign.</h2></div>
