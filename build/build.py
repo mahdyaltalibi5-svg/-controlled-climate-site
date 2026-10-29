@@ -144,7 +144,7 @@ def build_home():
   <div class="cc-inspection__scene">
     <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate installed outdoor air conditioner', '100vw')}</div>
     <div class="cc-inspection__shade" aria-hidden="true"></div>
-    <div class="cc-inspection__photographic-focus" aria-hidden="true"></div>
+    <div class="cc-inspection__photographic-focus" aria-hidden="true"></div><div class="cc-inspection__real3d" aria-hidden="true"><canvas id="cc-real-hvac"></canvas></div>
     <div class="cc-inspection__intro">
       <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
       <h1>Now the<br>other half.</h1>
