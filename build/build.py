@@ -141,7 +141,15 @@ def build_home():
 
     body = f"""
 <section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
-  <div class="cc-inspection__scene">
+  <nav class="cc-chapters" aria-label="Explore our website">
+    <a href="#cc-inspection" class="cc-chapters__link is-active"><span class="cc-chapters__number">01</span><span>EXACTLY WHAT WE CHECK</span></a>
+    <a href="#cc-problems" class="cc-chapters__link"><span class="cc-chapters__number">02</span><span>COMMON PROBLEMS</span></a>
+    <a href="#cc-process" class="cc-chapters__link"><span class="cc-chapters__number">03</span><span>OUR PROCESS</span></a>
+    <a href="#cc-areas" class="cc-chapters__link"><span class="cc-chapters__number">04</span><span>SERVICE AREAS</span></a>
+    <a href="#cc-reviews" class="cc-chapters__link"><span class="cc-chapters__number">05</span><span>REAL REVIEWS</span></a>
+    <a href="#cc-contact" class="cc-chapters__link"><span class="cc-chapters__number">06</span><span>SCHEDULE SERVICE</span></a>
+  </nav>
+  <div class="cc-inspection__scene" id="cc-inspection">
     <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><canvas class="cc-inspection__frames" aria-hidden="true"></canvas></div>
     <div class="cc-inspection__shade" aria-hidden="true"></div><div class="cc-inspection__aura" aria-hidden="true"></div>
     
@@ -168,7 +176,7 @@ def build_home():
   </div>
 </section>
 
-<section class="intent">
+<section class="intent" id="cc-problems">
 <div class="wrap intent__in">
 <div class="intent__head">
 <p class="eyebrow rv">Start here</p>
@@ -243,7 +251,7 @@ every major brand, replacements sized to the house, and sheet metal built to fit
 
 {T.thermal_scrub()}
 
-<section class="section section--ink section--process">
+<section class="section section--ink section--process" id="cc-process">
 <div class="wrap">
 <p class="eyebrow rv">What happens when you call</p>
 <h2 class="mb-m rv-mask" style="max-width:18ch"><span>No mystery pricing, no runaround.</span></h2>
@@ -280,7 +288,7 @@ No stock images of somebody else's install.</p>
 
 <section class="section">
 <div class="wrap">
-<p class="eyebrow rv">Reviews</p>
+<p class="eyebrow rv" id="cc-reviews">Reviews</p>
 <div class="phead__grid mb-l">
 <h2 style="margin:0" class="rv-mask"><span>{BIZ['rating']} stars across {BIZ['review_count']} Google reviews.</span></h2>
 <p class="lede" style="margin:0">The pattern is simple:
@@ -299,7 +307,7 @@ show up, explain the diagnosis, and do not oversell the fix.</p>
   "equipment set and sealed at the framing stage &mdash; laid out so it passes inspection "
   "the first time and moves air the way the drawings said it would.")}
 
-<section class="section section--haze">
+<section class="section section--haze" id="cc-areas">
 <div class="wrap">
 <p class="eyebrow rv">Service area</p>
 <h2 class="mb-m rv-mask"><span>Based in {BIZ['city']}. Working across the valley.</span></h2>
@@ -309,7 +317,7 @@ show up, explain the diagnosis, and do not oversell the fix.</p>
 </div></section>
 
 {T.faq_block(HOME_FAQS)}
-{T.cta_band()}
+<div id="cc-contact">{T.cta_band()}</div>
 """
 
     write("", T.page(
