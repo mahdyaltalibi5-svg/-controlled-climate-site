@@ -76,3 +76,13 @@
 @media(prefers-reduced-motion:reduce){
  .cc-experience__layer--duct-in,.cc-experience__layer--furnace,.cc-experience__layer--duct-out,.cc-experience__layer--warm{mask-image:none;-webkit-mask-image:none}
 }
+
+/* Motion performance: native video compositor instead of giant frame canvases. */
+.cc-cine-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;z-index:2;transform:translateZ(0);backface-visibility:hidden;will-change:opacity}
+.cc-furnace__media .cc-cine-video{z-index:3}
+.cc-inspection__backdrop>.cc-cine-video{z-index:3}
+.cc-inspection__backdrop>img{z-index:1}
+.cc-experience__layer--hvac .cc-inspection__backdrop{will-change:auto}
+.cc-experience__layer--furnace .cc-furnace__media{overflow:hidden}
+.cc-experience__layer{contain:layout paint style}
+@media(prefers-reduced-motion:reduce){.cc-cine-video{display:none}}
