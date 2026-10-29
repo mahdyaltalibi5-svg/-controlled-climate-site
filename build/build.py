@@ -175,6 +175,23 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 </div>
 </div></div></section>
 
+<section class="cc-inspection" aria-labelledby="cc-inspection-title">
+  <div class="cc-inspection__scene">
+    <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate outdoor air conditioning installation', '100vw')}</div>
+    <div class="cc-inspection__shade"></div>
+    <div class="cc-inspection__tech cc-inspection__tech--one"><span class="cc-inspection__dot"></span><strong>FAN + MOTOR</strong><small>Airflow. Exactly where it counts.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--two"><span class="cc-inspection__dot"></span><strong>CONDENSER COIL</strong><small>Heat exchange, inspected thoroughly.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--three"><span class="cc-inspection__dot"></span><strong>COMPRESSOR</strong><small>Checked from the inside out.</small></div>
+    <div class="cc-inspection__copy">
+      <span class="cc-inspection__eyebrow">THE DETAILS MAKE THE DIFFERENCE</span>
+      <h2 id="cc-inspection-title">Every part,<br><em>checked.</em></h2>
+      <p>We take the whole unit apart in our thinking — because the part that matters might be the one you can’t see.</p>
+      <a href="/services/air-conditioning-repair/" class="cc-inspection__link">Explore cooling services <span aria-hidden="true">→</span></a>
+    </div>
+    <span class="cc-inspection__footer">CONTROLLED CLIMATE / SYSTEM INSPECTION</span>
+  </div>
+</section>
+
 <section class="intent">
 <div class="wrap intent__in">
 <div class="intent__head">
