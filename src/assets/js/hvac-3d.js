@@ -6,7 +6,7 @@ if(section&&canvas){
  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;
  const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(39,1,.1,100);
- camera.position.set(3.7,-5.4,3.2);camera.lookAt(0,0,.8);
+ camera.position.set(3.5,2.55,4.6);camera.lookAt(0,0,0);
  scene.add(new THREE.HemisphereLight(0xdafaff,0x202a31,2.7));
  const key=new THREE.DirectionalLight(0xffffff,3.4);key.position.set(-3,-4,7);scene.add(key);
  const rim=new THREE.DirectionalLight(0x78fff0,2.0);rim.position.set(3,2,5);scene.add(rim);
@@ -21,7 +21,7 @@ if(section&&canvas){
   duration=Math.max(1,...gltf.animations.map(c=>c.duration));
   const bounds=new THREE.Box3().setFromObject(root);const center=bounds.getCenter(new THREE.Vector3());
   // Animations remain relative to the unchanged world position.
-  root.position.sub(new THREE.Vector3(center.x,center.y,0));
+  const size=bounds.getSize(new THREE.Vector3()); root.position.sub(center); const maxDimension=Math.max(size.x,size.y,size.z); root.scale.multiplyScalar(3.3/Math.max(0.1,maxDimension)); camera.position.set(4,2.8,5.8);camera.lookAt(0,0,0);
   section.dataset.modelReady='true';
  },undefined,e=>{console.error('HVAC 3D asset could not be loaded',e);section.dataset.modelReady='false'});
  const labelNodes=[...section.querySelectorAll('.cc-inspection__tech')],intro=section.querySelector('.cc-inspection__intro'),end=section.querySelector('.cc-inspection__final');
@@ -33,8 +33,7 @@ if(section&&canvas){
  let visible=true;
  new IntersectionObserver(e=>visible=e[0].isIntersecting,{rootMargin:'250px'}).observe(section);
  function frame(){requestAnimationFrame(frame);if(!visible)return;p+=(desired-p)*.12;
- if(mixer)for(let i=0;i<actions.length;i++)actions[i].time=p*duration;
- if(mixer)mixer.update(0);
+ if(mixer)mixer.setTime(p*duration);
  renderer.render(scene,camera);
  const first=1-range(.10,.34,p),last=range(.70,.93,p);
  intro.style.opacity=first;intro.style.pointerEvents=first>.3?'auto':'none';
