@@ -1,8 +1,8 @@
 (()=>{'use strict';
 const stage=document.querySelector('[data-cc-experience]');if(!stage)return;
-const scenes=['hvac','furnace','tunnel','warm','editorial'].map(k=>stage.querySelector('[data-cc-layer="'+k+'"]'));
+const scenes=['hvac','duct-in','furnace','duct-out','warm','editorial'].map(k=>stage.querySelector('[data-cc-layer="'+k+'"]'));
 const cold=stage.querySelector('.cc-experience__blend--cold'),hot=stage.querySelector('.cc-experience__blend--warm');
-const tunnel=stage.querySelector('.cc-ref__tunnel-img'),warmImg=stage.querySelector('.cc-ref__warm-img');
+const tunnel=stage.querySelector('.cc-ref__tunnel-img--in'),tunnelOut=stage.querySelector('.cc-ref__tunnel-img--out'),warmImg=stage.querySelector('.cc-ref__warm-img');
 const track=stage.querySelector('.cc-experience__track i'),chapter=stage.querySelector('[data-cc-chapter]');
 const dial=stage.querySelector('.cc-ref__dial-progress');
 const clamp=n=>Math.min(1,Math.max(0,n));
@@ -17,31 +17,29 @@ function draw(){
  pos+=(target-pos)*.19;
  if(Math.abs(target-pos)<.00015)pos=target;
  const p=pos;
- // Five measured beats matching the reference's progression, with purposeful overlaps.
- const hvacExit=ease(.215,.305,p);
- const furnaceIn=ease(.225,.305,p),furnaceOut=ease(.45,.525,p);
- const tunnelIn=ease(.452,.514,p),tunnelOut=ease(.545,.612,p);
- const warmIn=ease(.555,.625,p),warmOut=ease(.735,.82,p);
- const editorialIn=ease(.755,.845,p);
- const alphas=[1-hvacExit,furnaceIn*(1-furnaceOut),tunnelIn*(1-tunnelOut),warmIn*(1-warmOut),editorialIn];
- scenes.forEach((s,i)=>{if(!s)return;set(s,'opacity',String(alphas[i]));set(s,'pointerEvents',alphas[i]>.7?'auto':'none')});
- // Reveal glowing tunnel through an expanding circular aperture, not a blanket dissolve.
- const size=4+180*ease(.465,.545,p);
- set(scenes[2],'clipPath','circle('+size+'% at 50% 50%)');
- // Warm living room emerges through the bright vanishing point of the tunnel.
- const roomRadius=2+175*ease(.565,.645,p);
- set(scenes[3],'clipPath','circle('+roomRadius+'% at 50% 50%)');
- set(tunnel,'transform','scale('+(1.18+.5*ease(.46,.60,p))+')');
- set(warmImg,'transform','scale('+(1.095-.085*ease(.575,.73,p))+')');
- set(cold,'opacity',String(.35*ease(.18,.24,p)*(1-ease(.29,.35,p))));
- set(hot,'opacity',String(.38*ease(.46,.51,p)*(1-ease(.58,.65,p))));
- // 0..1 play each clip during its visual ownership, not during a second independent scroll timeline.
- window.__ccSceneProgress.hvac=ease(0,.265,p);
- window.__ccSceneProgress.furnace=ease(.255,.49,p);
- window.__ccSceneProgress.room=ease(.59,.75,p);
+ // Continuous HVAC -> duct -> flame -> duct -> home sequence. Each duct uses the same image.
+ const ductIn=ease(.205,.278,p)*(1-ease(.348,.406,p));
+ const flame=ease(.358,.428,p)*(1-ease(.535,.606,p));
+ const ductOut=ease(.551,.620,p)*(1-ease(.685,.747,p));
+ const room=ease(.704,.770,p)*(1-ease(.845,.904,p));
+ const editorial=ease(.86,.928,p);
+ const alpha=[1-ease(.218,.29,p),ductIn,flame,ductOut,room,editorial];
+ scenes.forEach((el,i)=>{set(el,'opacity',String(alpha[i]));set(el,'pointerEvents',alpha[i]>.7?'auto':'none')});
+ // The same center-of-frame duct appears on either side of ignition.
+ set(tunnel,'transform','scale('+(1.02+.63*ease(.21,.405,p))+')');
+ set(tunnelOut,'transform','scale('+(1.65-.60*ease(.56,.74,p))+')');
+ set(scenes[2],'clipPath','circle('+(3+170*ease(.36,.44,p))+'% at 50% 50%)');
+ set(scenes[3],'clipPath','circle('+(3+170*ease(.55,.63,p))+'% at 50% 50%)');
+ set(scenes[4],'clipPath','circle('+(2+170*ease(.705,.778,p))+'% at 50% 50%)');
+ set(warmImg,'transform','scale('+(1.095-.085*ease(.70,.83,p))+')');
+ set(cold,'opacity',String(.24*ease(.18,.25,p)*(1-ease(.29,.36,p))));
+ set(hot,'opacity',String(.25*ease(.36,.42,p)*(1-ease(.68,.75,p))));
+ window.__ccSceneProgress.hvac=ease(0,.27,p);
+ window.__ccSceneProgress.furnace=ease(.395,.565,p);
+ window.__ccSceneProgress.room=ease(.70,.86,p);
  set(track,'transform','scaleX('+p+')');
- if(chapter)chapter.textContent=p<.25?'01 / EVERY PART':p<.51?'02 / BLUE FLAME':p<.61?'03 / WARM AIR':p<.79?'04 / WARM. FINALLY.':'05 / TURN UP THE HEAT';
- stage.dataset.activeScene=['cooling','ignition','duct','living-room','thermostat'][p<.27?0:p<.5?1:p<.6?2:p<.8?3:4];
+ if(chapter)chapter.textContent=p<.24?'01 / EVERY PART':p<.39?'02 / WARM AIR':p<.58?'03 / BLUE FLAME':p<.73?'04 / WARM AIR':p<.88?'05 / WARM. FINALLY.':'06 / TURN UP THE HEAT';
+ stage.dataset.activeScene=p<.25?'cooling':p<.39?'duct-entry':p<.58?'ignition':p<.73?'duct-exit':p<.88?'living-room':'thermostat';
  if(Math.abs(target-pos)>.00015)queue();
 }
 function queue(){if(!raf)raf=requestAnimationFrame(draw)}
