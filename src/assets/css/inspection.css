@@ -62,3 +62,12 @@
 .cc-inspection__final{bottom:17%;right:4.8%}
 .cc-inspection__tech{border:1px solid rgba(115,247,216,.45);border-left:2px solid #9ffff0;background:rgba(3,16,22,.63);border-radius:4px}
 @media(max-width:760px){.cc-inspection__real3d{inset:18% -30% 13% -22%}.cc-inspection__final{bottom:16%}}
+
+.cc-inspection__real3d{display:none!important}
+.cc-inspection__scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.cc-inspection__backdrop img{filter:none}
+.cc-inspection__shade{background:linear-gradient(90deg,rgba(3,12,17,.27),transparent 35%,rgba(3,12,17,.22)),linear-gradient(0deg,rgba(3,12,17,.34),transparent 42%)}
+.cc-inspection__tech--one{left:57%;top:13%}
+.cc-inspection__tech--two{left:22%;top:44%}
+.cc-inspection__tech--three{left:18%;top:72%}
+@media(max-width:760px){.cc-inspection__scrub-video{object-position:48% center}.cc-inspection__tech--one{left:53%!important;top:18%}.cc-inspection__tech--two{top:40%}.cc-inspection__tech--three{top:59%}}
