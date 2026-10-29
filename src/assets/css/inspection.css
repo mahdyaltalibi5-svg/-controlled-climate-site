@@ -30,3 +30,18 @@
 .cc-inspection__intro,.cc-inspection__final,.cc-inspection__tech,.cc-inspection__scroll{will-change:opacity,transform}
 @media(max-width:760px){.cc-inspection{height:280svh}.cc-inspection__model{inset:5% -14% 8% -16%}.cc-inspection__intro{left:6%;right:6%;bottom:13%}.cc-inspection__intro h1,.cc-inspection__final h2{font-size:clamp(2.9rem,10vw,4.3rem)}.cc-inspection__final{left:6%;right:6%;bottom:12%}.cc-inspection__tech{left:5%!important;top:12%;max-width:175px;padding:8px 9px}.cc-inspection__tech--two{top:25%}.cc-inspection__tech--three{top:39%}.cc-inspection__tech strong{font-size:.75rem}.cc-inspection__tech small{display:none}.cc-inspection__status{bottom:3%}.cc-inspection__scroll{bottom:3%;font-size:.58rem}}
 @media(prefers-reduced-motion:reduce){.cc-inspection{height:auto;min-height:85svh}.cc-inspection__scene{position:relative;min-height:85svh}.cc-inspection__tech,.cc-inspection__final{display:none}.cc-inspection__intro{opacity:1!important;transform:none!important}.cc-inspection__backdrop img{transform:none}}
+
+/* Reference-driven corrective pass: cinematic scene, editorial copy, no synthetic line-art. */
+.cc-inspection__model,.cc-inspection__canvas,.cc-inspection__fallback{display:none!important}
+.cc-inspection__photographic-focus{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 36% 54% at 54% 55%,transparent 35%,rgba(5,12,13,.22) 100%);z-index:1}
+.cc-inspection__intro{left:4.5%;bottom:7.5%;max-width:340px}
+.cc-inspection__intro h1{font-size:clamp(2rem,3.35vw,4.15rem);line-height:.93;letter-spacing:-.06em;color:#fff}
+.cc-inspection__intro p{font-size:clamp(.8rem,.95vw,.94rem);line-height:1.48;max-width:305px}
+.cc-inspection__intro .cc-inspection__eyebrow{font-size:.56rem}
+.cc-inspection__final{right:5.2%;bottom:10%;max-width:370px}
+.cc-inspection__final h2{font-size:clamp(2.2rem,3.9vw,5rem)}
+.cc-inspection__shade{background:linear-gradient(90deg,rgba(4,10,12,.55),transparent 45%,rgba(2,9,11,.26)),linear-gradient(0deg,rgba(2,8,11,.55),transparent 45%);z-index:1}
+.cc-inspection__backdrop img{filter:saturate(.79) contrast(1.06) brightness(.81);transform:scale(1.02)}
+.cc-inspection__tech{background:rgba(5,25,25,.48);border-color:#91ffe4;left:5%}
+.cc-inspection__tech--one{top:18%}.cc-inspection__tech--two{top:40%;left:8%}.cc-inspection__tech--three{top:62%;left:8%}
+@media(max-width:760px){.cc-inspection__intro{bottom:12%;left:6%;max-width:310px}.cc-inspection__intro h1{font-size:clamp(2.5rem,8.3vw,3.7rem)}.cc-inspection__final{bottom:13%;max-width:340px}}
