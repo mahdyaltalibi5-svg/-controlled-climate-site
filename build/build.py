@@ -175,20 +175,35 @@ construction ductwork across Salt Lake County — from the shop in Taylorsville.
 </div>
 </div></div></section>
 
-<section class="cc-inspection" aria-labelledby="cc-inspection-title">
+<section class="cc-inspection" aria-label="Controlled Climate HVAC precision inspection" data-hvac-scroll>
   <div class="cc-inspection__scene">
-    <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate outdoor air conditioning installation', '100vw')}</div>
-    <div class="cc-inspection__shade"></div>
-    <div class="cc-inspection__tech cc-inspection__tech--one"><span class="cc-inspection__dot"></span><strong>FAN + MOTOR</strong><small>Airflow. Exactly where it counts.</small></div>
-    <div class="cc-inspection__tech cc-inspection__tech--two"><span class="cc-inspection__dot"></span><strong>CONDENSER COIL</strong><small>Heat exchange, inspected thoroughly.</small></div>
-    <div class="cc-inspection__tech cc-inspection__tech--three"><span class="cc-inspection__dot"></span><strong>COMPRESSOR</strong><small>Checked from the inside out.</small></div>
-    <div class="cc-inspection__copy">
-      <span class="cc-inspection__eyebrow">THE DETAILS MAKE THE DIFFERENCE</span>
-      <h2 id="cc-inspection-title">Every part,<br><em>checked.</em></h2>
-      <p>We take the whole unit apart in our thinking — because the part that matters might be the one you can’t see.</p>
-      <a href="/services/air-conditioning-repair/" class="cc-inspection__link">Explore cooling services <span aria-hidden="true">→</span></a>
+    <div class="cc-inspection__backdrop">{T.picture('ac-install', 'Controlled Climate installed outdoor air conditioner', '100vw')}</div>
+    <div class="cc-inspection__shade" aria-hidden="true"></div>
+    <div class="cc-inspection__model" aria-hidden="true">
+      <canvas class="cc-inspection__canvas"></canvas>
+      <div class="cc-inspection__halo"></div>
+      <div class="cc-inspection__fallback"><span>CONTROLLED CLIMATE</span><strong>ENGINEERED FOR COMFORT.</strong></div>
     </div>
-    <span class="cc-inspection__footer">CONTROLLED CLIMATE / SYSTEM INSPECTION</span>
+    <div class="cc-inspection__intro">
+      <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
+      <h1>Comfort,<br><em>down to the detail.</em></h1>
+      <p>Heating and cooling done right, across the Salt Lake Valley.</p>
+      <div class="cc-inspection__actions">
+        {T.call_btn('cinematic-hero','cc-inspection__primary','Call Andrew’s team')}
+        <a class="cc-inspection__secondary" href="/contact/">Request service</a>
+      </div>
+    </div>
+    <div class="cc-inspection__tech cc-inspection__tech--one"><span>01 / AIRFLOW</span><strong>Fan &amp; motor</strong><small>Every part has a purpose.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--two"><span>02 / HEAT EXCHANGE</span><strong>Condenser coil</strong><small>Inside the system.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--three"><span>03 / HEART OF THE SYSTEM</span><strong>Compressor &amp; controls</strong><small>The details you don't see.</small></div>
+    <div class="cc-inspection__final">
+      <span class="cc-inspection__eyebrow">NOT JUST THE OUTSIDE.</span>
+      <h2>Every part,<br><em>checked.</em></h2>
+      <p>We care about what happens inside your system, because that's where reliable comfort starts.</p>
+      <a href="/services/" class="cc-inspection__secondary">Explore our services</a>
+    </div>
+    <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
+    <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div>
 </section>
 
