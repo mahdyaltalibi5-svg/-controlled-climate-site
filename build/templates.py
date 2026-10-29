@@ -587,9 +587,9 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 {fab()}
 {callbar()}
 <script src="/assets/js/site.js?v={ASSET_VERSION}" defer></script>
-<script type="module" src="/assets/js/hvac-video-scrub.js?v={ASSET_VERSION}"></script>
+
 <script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
-<script src="/assets/js/furnace.js?v={ASSET_VERSION}" defer></script>
+
 <script src="/assets/js/experience.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
