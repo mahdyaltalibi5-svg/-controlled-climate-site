@@ -593,6 +593,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
 
 <script src="/assets/js/experience.js?v={ASSET_VERSION}" defer></script>
+<script src="/assets/js/journey-scroll.js?v={ASSET_VERSION}" defer></script>
 <script src="/assets/js/call-float.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
