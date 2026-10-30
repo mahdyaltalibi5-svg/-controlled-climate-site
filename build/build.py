@@ -167,12 +167,112 @@ def build_home():
     <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
     <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
   </div></div>
-  <div class="cc-experience__layer cc-experience__layer--journey" data-cc-layer="journey">
-    <img class="cc-journey__poster" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_230624_9e0d5b1c-1cd6-49e5-b2e5-1eee885e4b0d.png" alt="" decoding="async"><canvas class="cc-journey__canvas" data-journey-canvas aria-hidden="true"></canvas>
-    <div class="cc-journey__shade"></div>
-    <div class="cc-journey__copy cc-journey__copy--a"><span>02 / INSIDE YOUR SYSTEM</span><h2>Heat starts here.</h2></div>
-    <div class="cc-journey__copy cc-journey__copy--b"><span>PRECISION IGNITION</span><h2>Blue flame.<br>Good sign.</h2></div>
-    <div class="cc-journey__copy cc-journey__copy--c"><span>WARM AIR IN MOTION</span><h2>Comfort flows.</h2></div>
+
+  <div class="cc-experience__layer cc-experience__layer--architecture" data-cc-layer="architecture" aria-label="Architectural cutaway showing how the outdoor system connects to indoor airflow">
+    <div class="cc-architecture__grain" aria-hidden="true"></div>
+    <div class="cc-architecture__art" aria-hidden="true">
+      <svg class="cc-architecture__drawing" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="ccHouseWall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#192a32"/><stop offset="1" stop-color="#0c151c"/></linearGradient>
+          <linearGradient id="ccHouseRoom" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#493a31"/><stop offset=".6" stop-color="#2c2929"/><stop offset="1" stop-color="#15232a"/></linearGradient>
+          <linearGradient id="ccHouseDuct" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#51656b"/><stop offset=".5" stop-color="#293a42"/><stop offset="1" stop-color="#17262d"/></linearGradient>
+          <linearGradient id="ccHouseFloor" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#98745b"/><stop offset="1" stop-color="#524238"/></linearGradient>
+          <radialGradient id="ccRoomLight"><stop stop-color="#f3b975" stop-opacity=".35"/><stop offset="1" stop-color="#d47f45" stop-opacity="0"/></radialGradient>
+          <filter id="ccLineLight" x="-40%" y="-100%" width="180%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+          <pattern id="ccArchitectGrid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#8da5a8" stroke-opacity=".055" stroke-width="1"/></pattern>
+          <clipPath id="ccRoomClip"><rect x="351" y="270" width="756" height="346"/></clipPath>
+        </defs>
+        <rect width="1200" height="720" fill="url(#ccArchitectGrid)"/>
+        <path d="M89 634H1170" stroke="#779398" stroke-opacity=".20" stroke-width="2"/>
+        <path d="M332 622H1119" stroke="#a5c1c2" stroke-opacity=".16" stroke-dasharray="3 10"/>
+        <g class="cc-architecture__house">
+          <rect x="345" y="258" width="770" height="360" fill="url(#ccHouseWall)" stroke="#769297" stroke-width="2.5"/>
+          <rect x="731" y="271" width="373" height="335" fill="url(#ccHouseRoom)" opacity=".95"/>
+          <rect x="731" y="271" width="373" height="335" fill="url(#ccRoomLight)" class="cc-architecture__roomglow"/>
+          <path d="M321 263 730 86 1139 263 1113 264 730 106 347 264Z" fill="#26383e" stroke="#7f9fa4" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M348 262 730 113 1111 262" fill="none" stroke="#d0e1df" stroke-opacity=".34" stroke-width="2"/>
+          <path d="M385 262 730 136 1076 262" fill="none" stroke="#d0e1df" stroke-opacity=".16" stroke-width="1.5"/>
+          <path d="M730 108V264" stroke="#729195" stroke-opacity=".38" stroke-width="2"/>
+          <path d="M348 616V264M1112 616V264" stroke="#bdcfcf" stroke-opacity=".35" stroke-width="12"/>
+          <path d="M344 616H1114" stroke="#b5bbb4" stroke-opacity=".6" stroke-width="14"/>
+          <rect x="351" y="608" width="755" height="15" fill="url(#ccHouseFloor)"/>
+          <path d="M350 622H1118L1156 648H314Z" fill="#504943" stroke="#b3a89a" stroke-opacity=".3" stroke-width="1.5"/>
+          <path d="M340 630H1155M370 640H1130" stroke="#b59d86" stroke-opacity=".23" stroke-width="2"/>
+          <path d="M726 276V609" stroke="#839e9f" stroke-width="15" stroke-opacity=".55"/>
+          <path d="M718 286V595" stroke="#e0e8e3" stroke-width="1" stroke-opacity=".3"/>
+          <!-- Residential windows -->
+          <rect x="902" y="410" width="159" height="141" fill="#2c4551" stroke="#b0c7c4" stroke-opacity=".65" stroke-width="8"/>
+          <path d="M981 412V550M903 481H1061" stroke="#bbc8c4" stroke-width="5" opacity=".8"/>
+          <rect x="909" y="417" width="146" height="129" fill="#d9b18d" opacity=".06"/>
+          <!-- Realistic fixed rectangular duct trunk and supply branches -->
+          <path d="M466 315H1049V362H466Z" fill="url(#ccHouseDuct)" stroke="#b8ceca" stroke-opacity=".67" stroke-width="2.5"/>
+          <path d="M480 326H1045M483 352H1042" stroke="#d2e5e0" stroke-opacity=".22" stroke-width="1.3"/>
+          <path d="M515 316V362M662 316V362M828 316V362M964 316V362" stroke="#9bb3b3" stroke-opacity=".35" stroke-width="1.5"/>
+          <path d="M605 362V416H652V362M918 362V421H965V362" fill="url(#ccHouseDuct)" stroke="#9db6b7" stroke-opacity=".6" stroke-width="2"/>
+          <rect x="600" y="415" width="58" height="7" rx="2" fill="#697f83" stroke="#bdcbcb" stroke-opacity=".55"/>
+          <rect x="910" y="418" width="62" height="7" rx="2" fill="#697f83" stroke="#bdcbcb" stroke-opacity=".55"/>
+          <!-- Indoor air handler and coil: refrigerant connection is separate from ducts -->
+          <rect x="382" y="420" width="106" height="177" rx="2" fill="#33454a" stroke="#bed0d0" stroke-opacity=".65" stroke-width="3"/>
+          <rect x="389" y="427" width="92" height="66" rx="2" fill="#24333b" stroke="#879e9e"/>
+          <path d="M400 449H470M400 460H470M400 471H470" stroke="#97b0ae" stroke-opacity=".6" stroke-width="2"/>
+          <path d="M395 501H477V574H395Z" fill="#152329" stroke="#6f969a" stroke-width="1.5"/>
+          <circle cx="436" cy="538" r="27" fill="#263941" stroke="#7ca7ac" stroke-opacity=".7" stroke-width="2"/>
+          <path d="M436 513Q455 522 449 538Q433 532 436 513ZM411 538Q424 524 437 539Q424 549 411 538ZM440 563Q421 551 435 538Q456 550 440 563Z" fill="#8caeb0" opacity=".67"/>
+          <path d="M428 421V367H478" stroke="#8ea8ac" stroke-width="14" fill="none"/>
+          <path d="M428 421V366H478" stroke="#bacac7" stroke-opacity=".55" stroke-width="1.5" fill="none"/>
+          <rect x="400" y="583" width="70" height="5" rx="2" fill="#abc0bd" opacity=".5"/>
+          <!-- Sofa, table and lamp in living area -->
+          <rect x="790" y="530" width="204" height="54" rx="14" fill="#958b7f" stroke="#c4b19f" stroke-opacity=".7" stroke-width="3"/>
+          <rect x="781" y="507" width="26" height="73" rx="10" fill="#9d9286"/>
+          <rect x="982" y="507" width="26" height="73" rx="10" fill="#8e8175"/>
+          <rect x="806" y="505" width="173" height="41" rx="10" fill="#aba093"/>
+          <path d="M862 513V541M924 513V541" stroke="#c8bbb0" stroke-opacity=".55" stroke-width="2"/>
+          <rect x="789" y="581" width="21" height="18" fill="#504b48"/>
+          <rect x="980" y="581" width="21" height="18" fill="#504b48"/>
+          <ellipse cx="1033" cy="596" rx="48" ry="8" fill="#1a1a1d" opacity=".35"/>
+          <rect x="1010" y="551" width="45" height="5" rx="2" fill="#b7a48a"/>
+          <path d="M1030 555V598" stroke="#b6a48e" stroke-width="4"/>
+          <path d="M1045 499V558" stroke="#c3b7a5" stroke-width="4"/>
+          <path d="M1027 503H1065L1053 483H1038Z" fill="#d1bda4" opacity=".9"/>
+          <circle cx="1048" cy="507" r="28" fill="url(#ccRoomLight)" class="cc-architecture__roomglow"/>
+          <!-- Outdoor unit, with no unrealistic duct attached directly to outdoor cabinet -->
+          <rect x="135" y="486" width="150" height="126" rx="8" fill="#2d4149" stroke="#96b0b1" stroke-width="3"/>
+          <path d="M143 507H277M143 524H277M143 541H277M143 558H277M143 575H277M143 592H277" stroke="#a5bdba" stroke-opacity=".55" stroke-width="2.5"/>
+          <ellipse cx="210" cy="491" rx="66" ry="12" fill="#25353b" stroke="#a6bcbb" stroke-width="4"/>
+          <ellipse cx="210" cy="490" rx="40" ry="6" fill="none" stroke="#8ba9aa" stroke-width="2"/>
+          <path d="M163 612H257" stroke="#d4dfdb" stroke-opacity=".6" stroke-width="6"/>
+          <!-- Refrigerant piping from outdoor unit to indoor coil, not the duct itself -->
+          <path d="M284 561H326Q346 561 346 538H383" fill="none" stroke="#728b8d" stroke-width="13" stroke-linecap="round"/>
+          <path d="M284 561H326Q346 561 346 538H383" fill="none" stroke="#93ded6" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+          <!-- Motion routes: two separately controlled energy stages -->
+          <path class="cc-architecture__refrigerant-halo" d="M287 561H326Q346 561 346 538H380" fill="none" stroke="#76f3e1" stroke-width="14" filter="url(#ccLineLight)"/>
+          <path class="cc-architecture__refrigerant" d="M287 561H326Q346 561 346 538H380" fill="none" stroke="#a9fff0" stroke-width="4" stroke-linecap="round"/>
+          <path class="cc-architecture__warm-halo" d="M440 421V339H938V418" fill="none" stroke="#f4ae6e" stroke-width="20" filter="url(#ccLineLight)"/>
+          <path class="cc-architecture__warm-path" d="M440 421V339H938V418" fill="none" stroke="#ffc187" stroke-width="5" stroke-linecap="round"/>
+          <g class="cc-architecture__airflow">
+            <path d="M932 428Q910 452 941 478" stroke="#ffbd84" stroke-width="3" fill="none"/>
+            <path d="M946 429Q970 457 943 493" stroke="#ffe0a6" stroke-width="2.5" fill="none"/>
+            <path d="M625 428Q609 459 637 480" stroke="#ffc58b" stroke-width="2.5" fill="none"/>
+            <path d="M641 427Q664 456 648 487" stroke="#f1b778" stroke-width="2.5" fill="none"/>
+          </g>
+        </g>
+        <text x="143" y="462" fill="#afd1ce" font-size="12" font-family="Arial,sans-serif" letter-spacing="2">OUTDOOR UNIT</text>
+        <text x="385" y="403" fill="#a9dcd4" font-size="12" font-family="Arial,sans-serif" letter-spacing="2">INDOOR COIL + BLOWER</text>
+        <text x="771" y="300" fill="#d7e4e0" font-size="12" font-family="Arial,sans-serif" letter-spacing="2">SUPPLY DUCT</text>
+        <text x="781" y="641" fill="#e4b991" font-size="12" font-family="Arial,sans-serif" letter-spacing="2">LIVING SPACE</text>
+      </svg>
+    </div>
+    <div class="cc-architecture__headline">
+      <span class="cc-architecture__eyebrow">02 / THE INVISIBLE COMFORT</span>
+      <h2>It's what<br>you don't see.</h2>
+      <p>The equipment outside is only half the picture. Inside, precise connections and balanced airflow bring comfort home.</p>
+    </div>
+    <div class="cc-architecture__second">
+      <span class="cc-architecture__eyebrow">FROM THE SYSTEM TO THE ROOM</span>
+      <h2>Everything<br>works together.</h2>
+      <p>Air delivered where it's needed. Comfort you can actually feel.</p>
+    </div>
+    <div class="cc-architecture__foot"><span>01 / REFRIGERANT TRANSFER</span><span>02 / INDOOR AIRFLOW</span><span>03 / LIVING COMFORT</span></div>
   </div>
   <div class="cc-experience__layer cc-experience__layer--comfort" data-cc-layer="comfort">
     <img class="cc-comfort__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="Warm sunlit living room" decoding="async" loading="eager">
