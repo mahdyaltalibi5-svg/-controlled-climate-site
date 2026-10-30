@@ -572,6 +572,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <link rel="stylesheet" href="/assets/css/reference-flow.css?v={ASSET_VERSION}">
 <link rel="stylesheet" href="/assets/css/heat-journey.css?v={ASSET_VERSION}">
 <link rel="stylesheet" href="/assets/css/home-cinema.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/architecture.css?v={ASSET_VERSION}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 {analytics_head()}
@@ -593,7 +594,7 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
 
 <script src="/assets/js/experience.js?v={ASSET_VERSION}" defer></script>
-<script src="/assets/js/journey-scroll.js?v={ASSET_VERSION}" defer></script>
+
 <script src="/assets/js/call-float.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
