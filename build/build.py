@@ -140,42 +140,72 @@ def build_home():
     discount_html = "".join(f'<li><span>{d}</span><strong>10%</strong></li>' for d in discounts)
 
     body = f"""
-<section class="hero">
-<div class="hero__media px" data-px="90">{T.picture('ductwork-trunk', '', '100vw', lazy=False)}</div>
-<div class="hero__glow" aria-hidden="true"></div>
-<div class="seam-load"></div>
-<div class="wrap hero__in">
-<div class="hero__grid">
-<div>
-<span class="plate hero__plate intro intro-1"><span class="dot"></span>Taylorsville, UT &middot; Salt Lake Valley</span>
-<h1>{T.headline(["Heat back on.", "<em>Air back cold.</em>", "Done right."])}</h1>
-<p class="hero__lede intro intro-2">{BIZ['tagline']} Furnace and AC repair, replacement, and new
-construction ductwork across Salt Lake County — from the shop in Taylorsville.</p>
-<div class="hero__actions intro intro-3">
-{T.call_btn('hero', 'btn btn--call', f'Call {BIZ["phone_display"]}')}
-<a class="btn btn--onink-ghost" href="/services/" data-track="nav_services" data-loc="hero">See what we do</a>
-</div>
-<div class="hero__rail intro intro-4" aria-label="Service promises">
-<span>No stock photos</span><span>Repair before replace</span><span>Salt Lake Valley</span>
-</div>
-<div class="trust intro intro-5">
-<div class="trust__i"><div class="trust__k"><span class="count">{BIZ['rating']}</span> <span class="stars">{T.stars()}</span></div>
-<div class="trust__l"><span class="count">{BIZ['review_count']}</span> Google reviews</div></div>
-<div class="trust__i"><div class="trust__k">Priority</div>
-<div class="trust__l">No heat / no cool calls</div></div>
-<div class="trust__i"><div class="trust__k">Licensed</div>
-<div class="trust__l">&amp; insured in Utah</div></div>
-<div class="trust__i"><div class="trust__k">Upfront</div>
-<div class="trust__l">Price before the work</div></div>
-</div>
-</div>
-<div class="intro intro-6 hero__formwrap">
-<div class="hero__formtop"><span>Priority callback</span><strong>Mon-Sat</strong></div>
-{T.lead_form('hero', 'Request service')}
-</div>
-</div></div></section>
+<section class="cc-experience" aria-label="Controlled Climate cinematic walkthrough" data-cc-experience>
+ <div class="cc-experience__sticky" id="cc-inspection">
+  <div class="cc-experience__layer cc-experience__layer--hvac" data-cc-layer="hvac"><div class="cc-inspection__scene" >
+    <div class="cc-inspection__backdrop"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png" alt="" fetchpriority="high"><video class="cc-cine-video cc-cine-video--hvac" data-cine="hvac" muted playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_215436_8423c8c1-fc35-48e7-a617-5c2c373fe271.png"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/6cb02675-9ced-4843-a667-10ca646606cf.mp4" type="video/mp4"></video></div>
+    <div class="cc-inspection__shade" aria-hidden="true"></div><div class="cc-inspection__aura" aria-hidden="true"></div>
+    
+    <div class="cc-inspection__intro">
+      <span class="cc-inspection__eyebrow">CONTROLLED CLIMATE HEATING &amp; AIR</span>
+      <h1>Now the<br>other half.</h1>
+      <p>Your heat pump or AC lives outside all year. Here’s what expert care looks like.</p>
+      <div class="cc-inspection__actions">
+        {T.call_btn('cinematic-hero','cc-inspection__primary','Call Andrew’s team')}
+        <a class="cc-inspection__secondary" href="/contact/">Request service</a>
+      </div>
+    </div>
+    <div class="cc-inspection__tech cc-inspection__tech--one"><span>01 / AIRFLOW</span><strong>Fan &amp; motor</strong><small>Every part has a purpose.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--two"><span>02 / HEAT EXCHANGE</span><strong>Condenser coil</strong><small>Inside the system.</small></div>
+    <div class="cc-inspection__tech cc-inspection__tech--three"><span>03 / HEART OF THE SYSTEM</span><strong>Compressor &amp; controls</strong><small>The details you don't see.</small></div>
+    <div class="cc-inspection__final">
+      <span class="cc-inspection__eyebrow">NOT JUST THE OUTSIDE.</span>
+      <h2>Every part,<br><em>checked.</em></h2>
+      <p>We care about what happens inside your system, because that's where reliable comfort starts.</p>
+      <a href="/services/" class="cc-inspection__secondary">Explore our services</a>
+    </div>
+    <div class="cc-inspection__status"><span>01</span><div class="cc-inspection__meter"><i></i></div><span>03</span></div>
+    <div class="cc-inspection__scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
+  </div></div>
 
-<section class="intent">
+  <div class="cc-experience__layer cc-experience__layer--architecture" data-cc-layer="architecture">
+    <img class="cc-travel__poster" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/f4c39645-90dd-4a74-8953-bdffa506ba37.jpg" alt="" decoding="async">
+    <video class="cc-travel__video" data-travel-video muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/f4c39645-90dd-4a74-8953-bdffa506ba37.jpg"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/cf10d683-e971-4a97-a376-9c876e5a33fa.mp4" type="video/mp4"></video>
+    <div class="cc-travel__shade"></div>
+    <div class="cc-travel__caption"><span>02 / INSIDE THE SYSTEM</span><h2>From the outside,<br>to the inside.</h2><p>Follow the comfort home.</p></div>
+  </div>
+  <div class="cc-experience__layer cc-experience__layer--comfort" data-cc-layer="comfort">
+    <img class="cc-comfort__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/hf_20261029_225755_9742b8d5-03b1-4bbc-a5d7-30b2d2afa93a.png" alt="Warm sunlit living room" decoding="async" loading="eager">
+    <div class="cc-comfort__shade"></div>
+    <div class="cc-comfort__copy"><span>03 / HOME COMFORT</span><h2>Warm. Finally.</h2><p>Turn up the heat. Experience dependable comfort at home.</p><a href="/contact/">Book a tech <span aria-hidden="true">↗</span></a></div>
+    <div class="cc-comfort__dial" data-dial role="slider" tabindex="0" aria-label="Set thermostat temperature" aria-valuemin="60" aria-valuemax="80" aria-valuenow="69" aria-valuetext="69 degrees Fahrenheit">
+      <svg viewBox="0 0 220 220" aria-hidden="true"><circle cx="110" cy="110" r="88" stroke="rgba(255,255,255,.35)" stroke-width="10" fill="none"/><circle data-dial-progress cx="110" cy="110" r="88" stroke="#f5a057" stroke-width="10" fill="none" stroke-linecap="round" transform="rotate(-90 110 110)" stroke-dasharray="552.92" stroke-dashoffset="304"/></svg>
+      <small>HEATING / SET TO</small><strong><span data-cc-temp>69</span>°</strong><span class="cc-comfort__hint">DRAG TO ADJUST</span>
+    </div>
+  </div>
+  <div class="cc-experience__blend cc-experience__blend--cold" aria-hidden="true"></div>
+  <div class="cc-experience__blend cc-experience__blend--warm" aria-hidden="true"></div>
+  <nav class="cc-chapters" aria-label="Explore our website">
+    <a href="#cc-inspection" class="cc-chapters__link is-active"><span class="cc-chapters__number">01</span><span>EXACTLY WHAT WE CHECK</span></a>
+    <a href="#cc-problems" class="cc-chapters__link"><span class="cc-chapters__number">02</span><span>COMMON PROBLEMS</span></a>
+    <a href="#cc-process" class="cc-chapters__link"><span class="cc-chapters__number">03</span><span>OUR PROCESS</span></a>
+    <a href="#cc-areas" class="cc-chapters__link"><span class="cc-chapters__number">04</span><span>SERVICE AREAS</span></a>
+    <a href="#cc-reviews" class="cc-chapters__link"><span class="cc-chapters__number">05</span><span>REAL REVIEWS</span></a>
+    <a href="#cc-contact" class="cc-chapters__link"><span class="cc-chapters__number">06</span><span>SCHEDULE SERVICE</span></a>
+  </nav>
+  
+
+  <div class="cc-experience__timeline"><span data-cc-chapter>01 / THE OUTSIDE</span><div class="cc-experience__track"><i></i></div><span>SCROLL TO EXPLORE</span></div>
+ </div>
+</section>
+
+<aside class="cc-bottom-book" data-cc-bottom-book aria-label="Call Controlled Climate for service">
+ <span class="cc-bottom-book__offer"><small>STANDARD SERVICE CALL · MON–SAT</small><strong>From <em>$99</em> · Diagnostics additional</strong></span>
+ <a class="cc-bottom-book__action" href="tel:{BIZ['phone_e164']}" data-loc="cinematic_sticky_call" data-phone="href" aria-label="Call Controlled Climate about standard service">
+   CALL NOW <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+ </a>
+</aside>
+<section class="intent" id="cc-problems">
 <div class="wrap intent__in">
 <div class="intent__head">
 <p class="eyebrow rv">Start here</p>
@@ -250,7 +280,7 @@ every major brand, replacements sized to the house, and sheet metal built to fit
 
 {T.thermal_scrub()}
 
-<section class="section section--ink section--process">
+<section class="section section--ink section--process" id="cc-process">
 <div class="wrap">
 <p class="eyebrow rv">What happens when you call</p>
 <h2 class="mb-m rv-mask" style="max-width:18ch"><span>No mystery pricing, no runaround.</span></h2>
@@ -287,7 +317,7 @@ No stock images of somebody else's install.</p>
 
 <section class="section">
 <div class="wrap">
-<p class="eyebrow rv">Reviews</p>
+<p class="eyebrow rv" id="cc-reviews">Reviews</p>
 <div class="phead__grid mb-l">
 <h2 style="margin:0" class="rv-mask"><span>{BIZ['rating']} stars across {BIZ['review_count']} Google reviews.</span></h2>
 <p class="lede" style="margin:0">The pattern is simple:
@@ -306,7 +336,7 @@ show up, explain the diagnosis, and do not oversell the fix.</p>
   "equipment set and sealed at the framing stage &mdash; laid out so it passes inspection "
   "the first time and moves air the way the drawings said it would.")}
 
-<section class="section section--haze">
+<section class="section section--haze" id="cc-areas">
 <div class="wrap">
 <p class="eyebrow rv">Service area</p>
 <h2 class="mb-m rv-mask"><span>Based in {BIZ['city']}. Working across the valley.</span></h2>
@@ -316,7 +346,7 @@ show up, explain the diagnosis, and do not oversell the fix.</p>
 </div></section>
 
 {T.faq_block(HOME_FAQS)}
-{T.cta_band()}
+<div id="cc-contact">{T.cta_band()}</div>
 """
 
     write("", T.page(
