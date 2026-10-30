@@ -88,7 +88,13 @@ function run(){
  }
  desired=clamp(Math.round((window.__ccJourneyProgress||0)*239),0,239);
  const sheet=currentSheet();
- if(desired!==frameShown)paint(desired);
+ if(desired!==frameShown&&!paint(desired)){
+  // A rapid swipe can outrun the next image download. Show the nearest
+  // already-decoded sheet instead of freezing on a distant previous frame.
+  let nearest=-1,distance=Infinity;
+  for(const i of ready.keys()){const d=Math.abs(i-sheet);if(d<distance){distance=d;nearest=i}}
+  if(nearest>=0&&distance<=8){const substitute=clamp(desired,(nearest*4),nearest*4+3);if(substitute!==frameShown)paint(substitute)}
+ }
  pump();trim(sheet);
 }
 function queue(){if(!raf)raf=requestAnimationFrame(run)}
