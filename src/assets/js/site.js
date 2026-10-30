@@ -274,7 +274,7 @@
       }
 
       if (!CFG.formEndpoint) {
-        say("Online callback requests are not enabled yet. You can email this request using the link below or call " + (CFG.phoneDisplay || "") + ".", false); if(note) { var email = "andrewscogganhvac@gmail.com"; var subject = encodeURIComponent("Service request - Controlled Climate"); var body = encodeURIComponent("Name: "+(data.name||"")+"\\nPhone: "+(data.phone||"")+"\\nService: "+(data.service||"")+"\\nDetails: "+(data.message||"")); var a=document.createElement("a"); a.href="mailto:"+email+"?subject="+subject+"&body="+body; a.textContent="Open email to send your request"; a.className="form-mail-fallback"; a.style.cssText="display:block;margin-top:10px;text-decoration:underline;font-weight:750;color:#e88d56"; note.appendChild(a); }
+        say("Online callback requests are not enabled yet. You can email this request using the link below or call " + (CFG.phoneDisplay || "") + ".", false); if(note) { var email = "andrewscogganhvac@gmail.com"; var subject = encodeURIComponent("Service request - Controlled Climate"); var body = encodeURIComponent(["Name: "+(data.name||""),"Phone: "+(data.phone||""),"Service: "+(data.service||""),"Details: "+(data.message||"")].join(String.fromCharCode(10))); var a=document.createElement("a"); a.href="mailto:"+email+"?subject="+subject+"&body="+body; a.textContent="Open email to send your request"; a.className="form-mail-fallback"; a.style.cssText="display:block;margin-top:10px;text-decoration:underline;font-weight:750;color:#e88d56"; note.appendChild(a); }
         console.warn("[CCHA] Set window.CCHA.config.formEndpoint — see README.");
         return;
       }
