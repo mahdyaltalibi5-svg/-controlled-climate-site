@@ -170,7 +170,7 @@ def build_home():
 
   <div class="cc-experience__layer cc-experience__layer--architecture" data-cc-layer="architecture">
     <img class="cc-travel__poster" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/f4c39645-90dd-4a74-8953-bdffa506ba37.jpg" alt="" decoding="async">
-    <canvas class="cc-travel__canvas" data-travel-canvas aria-hidden="true"></canvas>
+    <video class="cc-travel__video" data-travel-video muted playsinline preload="auto" disablepictureinpicture aria-hidden="true" poster="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/f4c39645-90dd-4a74-8953-bdffa506ba37.jpg"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hv0eSSe1UKKaX8lO1KL1shZHyq/cf10d683-e971-4a97-a376-9c876e5a33fa.mp4" type="video/mp4"></video>
     <div class="cc-travel__shade"></div>
     <div class="cc-travel__caption"><span>02 / INSIDE THE SYSTEM</span><h2>From the outside,<br>to the inside.</h2><p>Follow the comfort home.</p></div>
   </div>
