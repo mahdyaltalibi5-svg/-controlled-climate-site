@@ -3,7 +3,7 @@
  const next=step+dir;if(next<0||next>3)return false;snap(next);return true;
 }
 function wheel(e){if(reduced||e.ctrlKey||e.metaKey||!inside()||input(e.target))return;const dir=Math.sign(e.deltaY);if(!dir||(step===0&&dir<0)||(step===3&&dir>0))return;e.preventDefault();
- if(step===2){const d=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?innerHeight:1);middleTarget=clamp(middleTarget+d/1600,0,1);queue();return}
+ if(step===2){const d=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?innerHeight:1);const atEnd=dir>0&&middleTarget>=.999,atStart=dir<0&&middleTarget<=.001;if(!atEnd&&!atStart){middleTarget=clamp(middleTarget+d/1600,0,1);queue();return}if(performance.now()<blocked)return;snap(step+dir);return}
  const now=performance.now();if(now<blocked)return;if(now-lastWheel>220)delta=0;lastWheel=now;delta+=Math.abs(e.deltaY)*(e.deltaMode===1?16:e.deltaMode===2?innerHeight:1);if(delta>=23){delta=0;advance(dir)}
 }
 function keys(e){if(reduced||!inside()||input(e.target)||e.altKey||e.metaKey||e.ctrlKey)return;
@@ -19,6 +19,6 @@ addEventListener('touchmove',e=>{if(reduced||!touch||!inside()||e.touches.length
 },{passive:false});
 addEventListener('touchend',e=>{if(reduced||!touch||!inside()||e.changedTouches.length!==1){touch=null;return}
  const dy=touch.y-e.changedTouches[0].clientY,dx=touch.x-e.changedTouches[0].clientX;const was=touch;touch=null;
- if(Math.abs(dy)>45&&Math.abs(dy)>Math.abs(dx)*1.2&&!(step===2&&was.used>0))advance(Math.sign(dy));
+ if(Math.abs(dy)>45&&Math.abs(dy)>Math.abs(dx)*1.2){const dir=Math.sign(dy);if(step===2&&was.used>0){if((dir>0&&middleTarget>=.999)||(dir<0&&middleTarget<=.001))advance(dir)}else advance(dir)}
 },{passive:true});
 function setTemp(n){n=clamp(Math.round(n),60,80);value.textContent=String(n);dial.setAttribute('aria-valuenow',String(n));dial.setAttribute('aria-valuetext',n+' degrees Fahrenheit');arc.setAttribute('stroke-dashoffset',String(552.92*(1-(n-60)/20)*.75));dial.style.setProperty('--dial-heat',((n-60)/20).toFixed(2))}function fromPointer(e){const r=dial.getBoundingClientRect(),x=e.clientX-(r.left+r.width/2),y=e.clientY-(r.top+r.height/2);let deg=(Math.atan2(x,-y)*180/Math.PI+360)%360;setTemp(60+20*deg/360)}let dragging=false;dial.addEventListener('pointerdown',e=>{dragging=true;dial.setPointerCapture(e.pointerId);fromPointer(e)});dial.addEventListener('pointermove',e=>{if(dragging)fromPointer(e)});dial.addEventListener('pointerup',()=>dragging=false);dial.addEventListener('pointercancel',()=>dragging=false);dial.addEventListener('keydown',e=>{let d=['ArrowUp','ArrowRight'].includes(e.key)?1:['ArrowDown','ArrowLeft'].includes(e.key)?-1:0;if(e.key==='Home'){setTemp(60);e.preventDefault()}else if(e.key==='End'){setTemp(80);e.preventDefault()}else if(d){setTemp(Number(value.textContent)+d);e.preventDefault()}});addEventListener('wheel',wheel,{passive:false});addEventListener('keydown',keys);addEventListener('scroll',measure,{passive:true});addEventListener('resize',measure,{passive:true});document.addEventListener('visibilitychange',()=>{if(document.hidden){hvac.pause()}});setTemp(69);measure();draw()})();
