@@ -31,14 +31,10 @@ html{scroll-behavior:smooth}
 .page--home .intent__item{background:linear-gradient(145deg,#182a31,#101e25);border:1px solid #35464c;color:white;border-radius:10px}
 .page--home .intent__item:hover{border-color:#8be8d8;box-shadow:0 20px 40px rgba(0,0,0,.24)}
 .page--home .intent__item span,.page--home .intent__item small{color:#a7bec5}
-.page--home main>.section:not(.section--ink):not(.section--process):nth-of-type(even){background:#edf1f0}
-.page--home main>.section:not(.section--ink):not(.section--process):nth-of-type(odd){background:#f7f8f5}
 .page--home .card{border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
 .page--home .card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -32px rgba(4,22,29,.45)}
-.page--home .pricing{background:#eff1ed}
 .page--home .section--process{background:linear-gradient(130deg,#0d2229,#071116)}
 .page--home .section--process h2{color:white}
-.page--home .section--haze{background:#e9efeb}
 .page--home .phead__grid h2{letter-spacing:-.055em}
 .page--inner main{background:#f4f6f3}
 .page--inner main>.section:first-of-type{padding-top:clamp(80px,10vw,135px)}
@@ -49,26 +45,3 @@ html{scroll-behavior:smooth}
 @media(max-width:1050px){.hdr .nav{gap:4px}.hdr .nav a{font-size:.66rem}.hdr__in{gap:13px}.cc-chapters{width:195px}.cc-chapters__link{font-size:.56rem}}
 @media(max-width:940px){.hdr .nav{background:#10232c;border-color:#344b54;top:100%;padding:20px 6vw;box-shadow:0 24px 44px rgba(0,0,0,.2)}.hdr .nav a{font-size:.82rem;padding:15px 8px;color:white;border-color:#30414a}.hdr .burger{display:flex}.hdr__book{display:inline-flex;padding:0 15px;font-size:.65rem}.cc-chapters{top:94px}}
 @media(max-width:700px){.hdr__in{min-height:66px;padding-inline:18px}.hdr .brand__mark{width:34px;height:34px}.hdr .brand__name{font-size:.83rem}.hdr .brand__sub{font-size:.44rem}.hdr__book{padding:0 11px;min-height:35px}.cc-chapters{left:20px;top:83px;width:200px}.cc-chapters__link{height:25px;font-size:.51rem;gap:10px}.cc-chapters__link:not(:last-child):after{height:17px;top:15px}.cc-inspection__intro{bottom:14%;left:6%;right:6%}}
-
-/* Contrast safeguard: dark sections must never inherit pale alternating section backgrounds. */
-.page--home main > .section.section--ink,
-.page--home main > .section.section--process {
-  background: #0b1a21;
-  color: #e6edf0;
-}
-.page--home main > .section.section--ink :is(h1,h2,h3,h4),
-.page--home main > .section.section--process :is(h1,h2,h3,h4) { color: #fff; }
-.page--home main > .section.section--ink :is(p,li),
-.page--home main > .section.section--process :is(p,li) { color: #d5e0e4; }
-.page--home main > .section:not(.section--ink):not(.section--process) {
-  color: #17232b;
-}
-.page--home main > .section:not(.section--ink):not(.section--process) :is(h1,h2,h3,h4) {
-  color: #15232b;
-}
-.page--home main > .section:not(.section--ink):not(.section--process) :is(p,li) {
-  color: #344650;
-}
-/* Preserve intentional white-on-dark cards, callouts and image overlays. */
-.page--home .intent__item :is(h2,h3,h4,p),
-.page--home .section--ink .card :is(h2,h3,h4,p) { color: inherit; }
