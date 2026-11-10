@@ -42,18 +42,22 @@ BIZ = {
     "review_count": "40",
 }
 
-# Confirmed from the live site footer: Mon–Sat, 7am–9pm.
-HOURS = [
-    ("Monday", "07:00", "21:00"),
-    ("Tuesday", "07:00", "21:00"),
-    ("Wednesday", "07:00", "21:00"),
-    ("Thursday", "07:00", "21:00"),
-    ("Friday", "07:00", "21:00"),
-    ("Saturday", "07:00", "21:00"),
-    ("Sunday", None, None),
+# Customer-confirmed availability: 24 hours a day, 7 days a week.
+HOURS = [(day, "00:00", "23:59") for day in
+         ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")]
+
+# Holiday schedule supplied by the customer. Open holidays retain 24-hour availability.
+HOLIDAY_HOURS = [
+    ("Veterans Day", "Open"),
+    ("Thanksgiving", "Closed"),
+    ("Black Friday", "Open"),
+    ("Christmas Eve", "Open"),
+    ("Christmas Day", "Closed"),
+    ("New Year's Eve", "Open"),
+    ("New Year's Day", "Open"),
 ]
 
-EMERGENCY_LINE = "After-hours calls are monitored for no-heat and no-cool emergencies."
+EMERGENCY_LINE = "Available 24/7 for heating and cooling service. Call anytime."
 
 # ---------------------------------------------------------------------------
 # 2. TRACKING  — fill these in, everything else is already wired
