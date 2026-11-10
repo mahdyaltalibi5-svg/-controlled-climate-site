@@ -4,7 +4,7 @@
 import json
 import os
 import html as _html
-from config import BIZ, HOURS, TRACKING, SERVICES, LOCATIONS, ALSO_SERVED, EMERGENCY_LINE
+from config import BIZ, HOURS, HOLIDAY_HOURS, TRACKING, SERVICES, LOCATIONS, ALSO_SERVED, EMERGENCY_LINE
 
 DOMAIN = BIZ["domain"].rstrip("/")
 PHONE = BIZ["phone_display"]
@@ -307,7 +307,7 @@ def fab():
     return f"""<a class="fab" href="tel:{TEL}" data-loc="fab" data-phone="href"
 aria-label="Call {BIZ['short_name']} at {PHONE}">
 <span class="fab__ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span>
-<span class="fab__txt"><small>Call now &middot; Mon&ndash;Sat</small><span class="num" data-phone="display">{PHONE}</span></span></a>"""
+<span class="fab__txt"><small>Call now &middot; 24/7</small><span class="num" data-phone="display">{PHONE}</span></span></a>"""
 
 
 def callbar():
@@ -322,12 +322,11 @@ def callbar():
 def footer():
     svc_links = "".join(f'<li><a href="/services/{s["slug"]}/">{s["name"]}</a></li>' for s in SERVICES)
     loc_links = "".join(f'<li><a href="/service-areas/{l["slug"]}/">{l["name"]}</a></li>' for l in LOCATIONS[:6])
-    hrs = []
-    for day, o, c in HOURS:
-        if o:
-            hrs.append(f'<li>{day[:3]} <span style="color:#fff">{_h(o)}–{_h(c)}</span></li>')
-        else:
-            hrs.append(f'<li>{day[:3]} <span>Closed</span></li>')
+    hrs = ['<li>Every day <span style="color:#fff">Open 24 hours</span></li>']
+    holiday_hrs = "".join(
+        f'<li>{name} <span style="color:#fff">{status}</span></li>'
+        for name, status in HOLIDAY_HOURS
+    )
     return f"""<footer class="ftr">
 <div class="wrap">
 <div class="ftr__grid">
@@ -342,7 +341,8 @@ def footer():
 <div><h4>Services</h4><ul>{svc_links}</ul></div>
 <div><h4>Service areas</h4><ul>{loc_links}<li><a href="/service-areas/">All areas →</a></li></ul></div>
 <div><h4>Hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:0">{''.join(hrs)}</ul>
-<h4 style="margin-top:26px">More</h4><ul><li><a href="/about/">About</a></li>
+<h4 style="margin-top:26px">Holiday hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:0">{holiday_hrs}</ul>
+ <h4 style="margin-top:26px">More</h4><ul><li><a href="/about/">About</a></li>
 <li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li>
 <li><a href="/sitemap/">Site map</a></li>
 {'<li><a href="' + BIZ['facebook'] + '" rel="noopener">Facebook</a></li>' if BIZ['facebook'] else ''}</ul></div>
