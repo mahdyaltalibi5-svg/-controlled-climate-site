@@ -113,7 +113,7 @@ def build_home():
 
     steps = [
         ("You call, a person answers",
-         "During business hours you get someone who can actually book you, not a "
+         "When you call, you can speak with someone who can help, not a "
          "voicemail tree. Tell us the symptom and we'll tell you whether it sounds "
          "urgent."),
         ("You get the next real window",
@@ -200,7 +200,7 @@ def build_home():
 </section>
 
 <aside class="cc-bottom-book" data-cc-bottom-book aria-label="Call Controlled Climate for service">
- <span class="cc-bottom-book__offer"><small>STANDARD SERVICE CALL · MON–SAT</small><strong>From <em>$99</em> · Diagnostics additional</strong></span>
+ <span class="cc-bottom-book__offer"><small>STANDARD SERVICE CALL · 24/7</small><strong>From <em>$99</em> · Diagnostics additional</strong></span>
  <a class="cc-bottom-book__action" href="tel:{BIZ['phone_e164']}" data-loc="cinematic_sticky_call" data-phone="href" aria-label="Call Controlled Climate about standard service">
    CALL NOW <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
  </a>
@@ -252,7 +252,7 @@ every major brand, replacements sized to the house, and sheet metal built to fit
 </div>
 <div class="pricing__grid">
 <article class="pricecard rv">
-<div class="pricecard__top"><span>Standard service</span><small>Mon&ndash;Sat</small></div>
+<div class="pricecard__top"><span>Standard service</span><small>24/7 availability</small></div>
 <dl>
 <div><dt>Dispatch &amp; service call</dt><dd>$99</dd></div>
 <div><dt>Diagnostic</dt><dd>$145</dd></div>
