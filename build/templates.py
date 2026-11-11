@@ -4,7 +4,7 @@
 import json
 import os
 import html as _html
-from config import BIZ, HOURS, TRACKING, SERVICES, LOCATIONS, ALSO_SERVED, EMERGENCY_LINE
+from config import BIZ, HOURS, HOLIDAY_HOURS, TRACKING, SERVICES, LOCATIONS, ALSO_SERVED, EMERGENCY_LINE
 
 DOMAIN = BIZ["domain"].rstrip("/")
 PHONE = BIZ["phone_display"]
@@ -293,11 +293,11 @@ def header(active=""):
 <div class="wrap hdr__in">
 <a class="brand" href="/" aria-label="{BIZ['name']} home">{brand_mark()}
 <span class="brand__txt"><span class="brand__name">Controlled Climate</span>
-<span class="brand__sub">Salt Lake</span></span></a>
+<span class="brand__sub">HEATING &amp; AIR</span></span></a>
 <nav class="nav" id="nav" aria-label="Main">{links}</nav>
 <div class="hdr__cta">
 <a class="hdr__phone" href="tel:{TEL}" data-loc="header" data-phone="href"><span data-phone="display">{PHONE}</span></a>
-{call_btn("header_btn", "btn btn--call", "Call now")}
+<a class="hdr__book" href="/contact/" data-track="header_book" data-loc="header">Book a tech</a>
 <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
 <span></span><span></span><span></span></button>
 </div></div></header>"""
@@ -307,7 +307,7 @@ def fab():
     return f"""<a class="fab" href="tel:{TEL}" data-loc="fab" data-phone="href"
 aria-label="Call {BIZ['short_name']} at {PHONE}">
 <span class="fab__ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></span>
-<span class="fab__txt"><small>Call now &middot; Mon&ndash;Sat</small><span class="num" data-phone="display">{PHONE}</span></span></a>"""
+<span class="fab__txt"><small>Call now &middot; 24/7</small><span class="num" data-phone="display">{PHONE}</span></span></a>"""
 
 
 def callbar():
@@ -322,12 +322,11 @@ def callbar():
 def footer():
     svc_links = "".join(f'<li><a href="/services/{s["slug"]}/">{s["name"]}</a></li>' for s in SERVICES)
     loc_links = "".join(f'<li><a href="/service-areas/{l["slug"]}/">{l["name"]}</a></li>' for l in LOCATIONS[:6])
-    hrs = []
-    for day, o, c in HOURS:
-        if o:
-            hrs.append(f'<li>{day[:3]} <span style="color:#fff">{_h(o)}–{_h(c)}</span></li>')
-        else:
-            hrs.append(f'<li>{day[:3]} <span>Closed</span></li>')
+    hrs = ['<li>Every day <span style="color:#fff">Open 24 hours</span></li>']
+    holiday_hrs = "".join(
+        f'<li>{name} <span style="color:#fff">{status}</span></li>'
+        for name, status in HOLIDAY_HOURS
+    )
     return f"""<footer class="ftr">
 <div class="wrap">
 <div class="ftr__grid">
@@ -342,7 +341,8 @@ def footer():
 <div><h4>Services</h4><ul>{svc_links}</ul></div>
 <div><h4>Service areas</h4><ul>{loc_links}<li><a href="/service-areas/">All areas →</a></li></ul></div>
 <div><h4>Hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:0">{''.join(hrs)}</ul>
-<h4 style="margin-top:26px">More</h4><ul><li><a href="/about/">About</a></li>
+<h4 style="margin-top:26px">Holiday hours</h4><ul style="font-family:var(--mono);font-size:.78rem;letter-spacing:0">{holiday_hrs}</ul>
+ <h4 style="margin-top:26px">More</h4><ul><li><a href="/about/">About</a></li>
 <li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li>
 <li><a href="/sitemap/">Site map</a></li>
 {'<li><a href="' + BIZ['facebook'] + '" rel="noopener">Facebook</a></li>' if BIZ['facebook'] else ''}</ul></div>
@@ -560,18 +560,27 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 <meta property="og:image" content="{DOMAIN}/assets/img/{og_image}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" as="style" href="/assets/css/site.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/inspection.css?v={ASSET_VERSION}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 {pre}
 <link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/premium.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/furnace.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/experience.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/reference-flow.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/heat-journey.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/home-cinema.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/architecture.css?v={ASSET_VERSION}">
+<link rel="stylesheet" href="/assets/css/travel-scroll.css?v={ASSET_VERSION}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 {analytics_head()}
 {site_config_js()}
 {ld(*(schema or []))}
 </head>
-<body>
+<body class="{'page--home' if path.strip('/') == '' else 'page--inner'}">
 <a class="skip" href="#main">Skip to content</a>
 <div class="progress" aria-hidden="true"></div>
 {header(_active_for(path))}
@@ -582,6 +591,13 @@ def page(*, path, title, description, body, schema=None, og_image="og-card.jpg",
 {fab()}
 {callbar()}
 <script src="/assets/js/site.js?v={ASSET_VERSION}" defer></script>
+
+<script src="/assets/js/premium.js?v={ASSET_VERSION}" defer></script>
+
+<script src="/assets/js/experience.js?v={ASSET_VERSION}" defer></script>
+<script src="/assets/js/travel-scroll.js?v={ASSET_VERSION}" defer></script>
+
+<script src="/assets/js/call-float.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
 

@@ -1,0 +1,1 @@
+(()=>{'use strict';const bar=document.querySelector('[data-cc-bottom-book]');if(!bar)return;let raf=0;function update(){raf=0;bar.classList.toggle('is-visible',scrollY>Math.max(270,innerHeight*.45))}function schedule(){if(!raf)raf=requestAnimationFrame(update)}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});update()})();
